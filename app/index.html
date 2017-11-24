@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PostCSS REPL</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="loading">
+      <p>Loading...</p>
+    </div>
+    <div id="app">
+      <div class="input-output">
+        <textarea id="i" rows="25" cols="80" spellcheck="false" autofocus v-model="input" v-on:keypress.tab.prevent="tab"></textarea>
+        <pre>{{ output }}</pre>
+      </div>
+      <pre v-if="error" class="error">{{ error }}</pre>
+      <div class="plugins">
+        <label class="plugin" v-for="plugin in plugins">
+          <input type="checkbox" :value="plugin" v-model="selectedPlugins" />
+          {{ plugin }}
+        </label>
+      </div>
+    </div>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>

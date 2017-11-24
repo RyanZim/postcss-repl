@@ -1,0 +1,60 @@
+{
+  "name": "postcss-repl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Postcss REPL",
+  "homepage": "https://github.com/RyanZim/postcss-repl#readme",
+  "bugs": {
+    "url": "https://github.com/RyanZim/postcss-repl/issues"
+  },
+  "license": "ISC",
+  "author": "Ryan Zimmerman",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanZim/postcss-repl.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier \"*.{js,md}\" \"app/*.{js,css}\" --write",
+    "prebuild": "mkdir -p dist",
+    "build": "run-npm -p build:*",
+    "build:html": "cp app/index.html dist/index.html",
+    "build:js": "browserify app/index.js | uglifyjs > dist/index.js",
+    "build:css": "postcss --no-map app/index.css -o dist/index.css",
+    "prewatch": "npm run build",
+    "watch": "run-npm -p watch:*",
+    "watch:html": "onchange app/index.html -v -- npm run build:html",
+    "watch:js": "watchify -d app/index.js -o dist/index.js",
+    "watch:css": "postcss app/index.css -o dist/index.css --watch",
+    "watch:serve": "live-server dist",
+    "predeploy": "rm -rf dist && npm run build",
+    "deploy": "surge dist postcss-repl.surge.sh"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "lodash.debounce": "^4.0.8",
+    "lost": "^8.2.0",
+    "normalize.css": "^7.0.0",
+    "postcss": "^6.0.14",
+    "postcss-calc": "^6.0.1",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^2.1.2",
+    "postcss-nesting": "^4.2.1",
+    "postcss-ordered-values": "^2.2.3",
+    "postcss-short": "^4.1.0",
+    "vue": "^2.5.8"
+  },
+  "devDependencies": {
+    "browserify": "^14.5.0",
+    "live-server": "^1.2.0",
+    "onchange": "^3.2.1",
+    "postcss-cli": "^4.1.1",
+    "postcss-import": "^11.0.0",
+    "prettier": "1.8.2",
+    "script-runner": "^0.1.7",
+    "surge": "^0.19.0",
+    "uglify-es": "^3.1.10",
+    "watchify": "^3.9.0"
+  }
+}
