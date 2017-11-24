@@ -4,7 +4,7 @@ module.exports = {
   'postcss-nested': require('postcss-nested'),
   'postcss-short': require('postcss-short'),
   lost: require('lost'),
-  'postcss-cssnext': require('postcss-cssnext'),
+  'postcss-cssnext': require('postcss-cssnext')({ warnForDuplicates: false }),
   'postcss-ordered-values': require('postcss-ordered-values'),
   'postcss-calc': require('postcss-calc'),
   'postcss-flexbugs-fixes': require('postcss-flexbugs-fixes'),

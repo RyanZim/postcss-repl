@@ -4,6 +4,7 @@ const Vue = require('vue/dist/vue.common.js');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const pluginsObj = require('./plugins');
+const filterDupes = require('postcss-filter-plugins');
 
 const css = `p {
   color: red;
@@ -26,12 +27,30 @@ const app = new Vue({
     process: _debounce(
       function() {
         try {
-          const plugins = this.selectedPlugins.map(name => pluginsObj[name]);
+          const plugins = this.selectedPlugins
+            .map(name => pluginsObj[name])
+            .concat([
+              filterDupes({
+                template: plugin =>
+                  `${
+                    plugin.postcssPlugin
+                  } is included more than once in the plugin chain`,
+              }),
+            ]);
           postcss(plugins)
             .process(this.input)
             .then(result => {
               this.output = result.css;
-              this.error = '';
+              this.error = result
+                .warnings()
+                .map(warn => {
+                  return `Warning: ${
+                    warn.plugin === 'postcss-filter-plugins'
+                      ? warn.text
+                      : warn.toString()
+                  }`;
+                })
+                .join('\n');
             })
             .catch(error => {
               this.error = error.toString();
