@@ -1,0 +1,4 @@
+language: node_js
+script:
+  - prettier "*.{js,md}" "app/*.{js,css}" --list-different
+  - npm run build

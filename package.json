@@ -14,7 +14,6 @@
     "url": "git+https://github.com/RyanZim/postcss-repl.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier \"*.{js,md}\" \"app/*.{js,css}\" --write",
     "prebuild": "mkdir -p dist",
     "build": "run-npm -p build:*",
