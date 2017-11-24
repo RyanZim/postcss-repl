@@ -26,6 +26,8 @@ A brief rundown of the tech used:
 * PostCSS for CSS (of course!)
 * Browserify for bundling
 
+Please ensure you're using npm v5 or higher when working on this project. We have the `package-lock.json` committed to version control, please keep it up-to-date. (If you use `nvm`, you can just run `nvm use` in the project directory to get the correct version).
+
 We use prettier for code formatting, please run `npm run format` before committing and pushing.
 
 Please open an issue before making huge changes.
