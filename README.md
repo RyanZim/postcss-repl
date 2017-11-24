@@ -31,3 +31,7 @@ We use prettier for code formatting, please run `npm run format` before committi
 Please open an issue before making huge changes.
 
 And most importantly: **Be Nice!**
+
+## License
+
+ISC (similar to MIT, but shorter)
