@@ -13,6 +13,7 @@ The goal is to build a REPL for [PostCSS](http://postcss.org/), including as man
 * `postcss-nested`
 * `postcss-short`
 * `lost`
+* `postcss-cssnext`
 * `postcss-ordered-values`
 * `postcss-calc`
 * `postcss-flexbugs-fixes`
