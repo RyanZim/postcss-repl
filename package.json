@@ -20,6 +20,7 @@
     "build:html": "cp app/index.html dist/index.html",
     "build:js": "browserify -g aliasify app/index.js | uglifyjs > dist/index.js",
     "build:css": "postcss --no-map app/index.css -o dist/index.css",
+    "build:readme": "node build-readme.js",
     "prewatch": "npm run build",
     "watch": "run-npm -p watch:*",
     "watch:html": "onchange app/index.html -v -- npm run build:html",

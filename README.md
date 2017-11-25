@@ -8,16 +8,20 @@ The goal is to build a REPL for [PostCSS](http://postcss.org/), including as man
 
 ## Currently Supported Plugins
 
-* `postcss-mixins`
-* `postcss-nesting`
-* `postcss-nested`
-* `postcss-short`
-* `lost`
-* `postcss-cssnext`
-* `postcss-ordered-values`
-* `postcss-calc`
-* `postcss-flexbugs-fixes`
-* `autoprefixer`
+<!-- AUTO-GENERATED; DO NOT EDIT -->
+
+* [`postcss-mixins`](https://www.npmjs.com/package/postcss-mixins)
+* [`postcss-nesting`](https://www.npmjs.com/package/postcss-nesting)
+* [`postcss-nested`](https://www.npmjs.com/package/postcss-nested)
+* [`postcss-short`](https://www.npmjs.com/package/postcss-short)
+* [`lost`](https://www.npmjs.com/package/lost)
+* [`postcss-cssnext`](https://www.npmjs.com/package/postcss-cssnext)
+* [`postcss-ordered-values`](https://www.npmjs.com/package/postcss-ordered-values)
+* [`postcss-calc`](https://www.npmjs.com/package/postcss-calc)
+* [`postcss-flexbugs-fixes`](https://www.npmjs.com/package/postcss-flexbugs-fixes)
+* [`autoprefixer`](https://www.npmjs.com/package/autoprefixer)
+
+<!-- END AUTO-GENERATED -->
 
 ## Contributing
 
@@ -31,7 +35,7 @@ A brief rundown of the tech used:
 
 Please ensure you're using npm v5 or higher when working on this project. We have the `package-lock.json` committed to version control, please keep it up-to-date. (If you use `nvm`, you can just run `nvm use` in the project directory to get the correct version).
 
-We use prettier for code formatting, please run `npm run format` before committing and pushing.
+We use prettier for code formatting, please run `npm run format` before committing and pushing. The plugin list above is auto-generated, run `npm run build:readme` (or `npm run build`) to regenerate it after adding a plugin.
 
 Please open an issue before making huge changes.
 
