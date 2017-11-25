@@ -1,12 +1,20 @@
-module.exports = {
-  'postcss-mixins': require('postcss-mixins'),
-  'postcss-nesting': require('postcss-nesting'),
-  'postcss-nested': require('postcss-nested'),
-  'postcss-short': require('postcss-short'),
-  lost: require('lost'),
-  'postcss-cssnext': require('postcss-cssnext')({ warnForDuplicates: false }),
-  'postcss-ordered-values': require('postcss-ordered-values'),
-  'postcss-calc': require('postcss-calc'),
-  'postcss-flexbugs-fixes': require('postcss-flexbugs-fixes'),
-  autoprefixer: require('autoprefixer'),
-};
+module.exports = [
+  require('postcss-mixins'),
+  require('postcss-nesting'),
+  require('postcss-nested'),
+  require('postcss-short'),
+  require('lost'),
+  require('postcss-cssnext')({ warnForDuplicates: false }),
+  require('postcss-ordered-values'),
+  require('postcss-calc'),
+  require('postcss-flexbugs-fixes'),
+  require('autoprefixer'),
+].reduce((obj, plugin) => {
+  plugin = plugin.postcssPlugin ? plugin : plugin();
+  obj[plugin.postcssPlugin] = {
+    plugin,
+    name: plugin.postcssPlugin,
+    url: `https://www.npmjs.com/package/${plugin.postcssPlugin}`,
+  };
+  return obj;
+}, {});

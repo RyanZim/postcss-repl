@@ -16,7 +16,7 @@ const app = new Vue({
     input: css,
     output: css,
     error: '',
-    plugins: Object.keys(pluginsObj),
+    plugins: Object.values(pluginsObj),
     selectedPlugins: [],
   },
   watch: {
@@ -28,7 +28,7 @@ const app = new Vue({
       function() {
         try {
           const plugins = this.selectedPlugins
-            .map(name => pluginsObj[name])
+            .map(name => pluginsObj[name].plugin)
             .concat([
               filterDupes({
                 template: plugin =>
