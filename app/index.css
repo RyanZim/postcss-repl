@@ -42,16 +42,3 @@ pre {
     margin: 0.5rem;
   }
 }
-
-#loading {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background: #ddd;
-  & > p {
-    font-size: 3rem;
-  }
-}
