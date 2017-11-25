@@ -46,6 +46,7 @@
     "postcss-nesting": "^4.2.1",
     "postcss-ordered-values": "^2.2.3",
     "postcss-short": "^4.1.0",
+    "postcss-simple-vars": "^4.1.0",
     "vue": "^2.5.8"
   },
   "devDependencies": {

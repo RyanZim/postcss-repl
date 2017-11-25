@@ -1,4 +1,5 @@
 module.exports = [
+  require('postcss-simple-vars'),
   require('postcss-mixins'),
   require('postcss-nesting'),
   require('postcss-nested'),
