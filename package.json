@@ -52,6 +52,7 @@
   "devDependencies": {
     "aliasify": "^2.1.0",
     "browserify": "^14.5.0",
+    "cssnano": "^3.10.0",
     "live-server": "^1.2.0",
     "onchange": "^3.2.1",
     "postcss-cli": "^4.1.1",
