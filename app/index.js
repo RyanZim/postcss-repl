@@ -53,6 +53,7 @@ const app = new Vue({
                 .join('\n');
             })
             .catch(error => {
+              console.error(error);
               this.error = error.toString();
             });
         } catch (e) {
