@@ -10,6 +10,7 @@ module.exports = [
   require('postcss-calc'),
   require('postcss-flexbugs-fixes'),
   require('autoprefixer'),
+  require('cssnano-browser'),
 ].reduce((obj, plugin) => {
   plugin = plugin.postcssPlugin ? plugin : plugin();
   obj[plugin.postcssPlugin] = {

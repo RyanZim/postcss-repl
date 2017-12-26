@@ -21,6 +21,7 @@ The goal is to build a REPL for [PostCSS](http://postcss.org/), including as man
 * [`postcss-calc`](https://www.npmjs.com/package/postcss-calc)
 * [`postcss-flexbugs-fixes`](https://www.npmjs.com/package/postcss-flexbugs-fixes)
 * [`autoprefixer`](https://www.npmjs.com/package/autoprefixer)
+* [`cssnano`](https://www.npmjs.com/package/cssnano)
 
 <!-- END AUTO-GENERATED -->
 
