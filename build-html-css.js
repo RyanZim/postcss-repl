@@ -5,7 +5,7 @@ let html = fs.readFileSync('app/index.html', 'utf8');
 let css = fs.readFileSync('app/index.css', 'utf8');
 
 postcss([
-  require('postcss-import'),
+  require('postcss-normalize'),
   require('postcss-nesting'),
   require('cssnano'),
 ])

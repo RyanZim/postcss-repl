@@ -1,7 +1,11 @@
-@import 'normalize.css';
+@import-normalize;
 
 html {
   font-family: sans-serif;
+}
+
+body {
+  margin: 0;
 }
 
 #loading {
