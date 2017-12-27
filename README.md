@@ -39,6 +39,8 @@ Please ensure you're using npm v5 or higher when working on this project. We hav
 
 We use prettier for code formatting, please run `npm run format` before committing and pushing. The plugin list above is auto-generated, run `npm run build:readme` (or `npm run build`) to regenerate it after adding a plugin.
 
+Run `npm run analyze` to get a breakdown of what packages are eating up bundle size.
+
 Please open an issue before making huge changes.
 
 And most importantly: **Be Nice!**

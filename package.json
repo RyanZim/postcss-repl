@@ -15,15 +15,16 @@
   },
   "scripts": {
     "format": "prettier \"*.{js,md}\" \"app/*.{js,css}\" --write",
+    "analyze": "NODE_ENV=production browserify --full-paths -g aliasify -g envify -i svgo -i source-map app/index.js | discify --open",
     "prebuild": "mkdir -p dist",
     "build": "run-npm -p build:*",
     "build:html-css": "node build-html-css.js",
-    "build:js": "NODE_ENV=production browserify -g aliasify -g envify app/index.js | uglifyjs -c -m > dist/index.js",
+    "build:js": "NODE_ENV=production browserify -g aliasify -g envify -i svgo -i source-map app/index.js | uglifyjs -c -m > dist/index.js",
     "build:readme": "node build-readme.js",
     "prewatch": "npm run build",
     "watch": "run-npm -p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
-    "watch:js": "watchify -d -g aliasify app/index.js -o dist/index.js",
+    "watch:js": "watchify -d -g aliasify app/index.js -i svgo -i source-map -o dist/index.js",
     "watch:serve": "live-server dist",
     "predeploy": "rm -rf dist && npm run build",
     "deploy": "surge dist postcss-repl.surge.sh"
@@ -51,6 +52,7 @@
     "aliasify": "^2.1.0",
     "browserify": "^14.5.0",
     "cssnano": "^3.10.0",
+    "discify": "^1.6.0",
     "envify": "^4.1.0",
     "live-server": "^1.2.0",
     "onchange": "^3.3.0",
@@ -63,7 +65,8 @@
   },
   "aliasify": {
     "aliases": {
-      "postcss-font-family-system-ui": "postcss-font-family-system-ui-commonjs"
+      "postcss-font-family-system-ui": "postcss-font-family-system-ui-commonjs",
+      "caniuse-lite": "./node_modules/caniuse-lite"
     }
   }
 }
