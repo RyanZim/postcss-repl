@@ -30,7 +30,7 @@
     "deploy": "surge dist postcss-repl.surge.sh"
   },
   "dependencies": {
-    "autoprefixer": "7.2.3",
+    "autoprefixer": "7.2.4",
     "cssnano-browser": "4.0.0-rc.2",
     "lodash.debounce": "^4.0.8",
     "lost": "8.2.0",
