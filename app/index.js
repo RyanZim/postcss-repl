@@ -38,7 +38,7 @@ const app = new Vue({
               }),
             ]);
           postcss(plugins)
-            .process(this.input)
+            .process(this.input, { from: undefined })
             .then(result => {
               this.output = result.css;
               this.error = result
