@@ -67,5 +67,10 @@
       "postcss-font-family-system-ui": "postcss-font-family-system-ui-commonjs",
       "caniuse-lite": "./node_modules/caniuse-lite"
     }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "proseWrap": "never"
   }
 }
