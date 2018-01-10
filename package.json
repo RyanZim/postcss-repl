@@ -26,8 +26,7 @@
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
     "watch:js": "watchify -d -g aliasify app/index.js -i svgo -i source-map -o dist/index.js",
     "watch:serve": "live-server dist",
-    "predeploy": "rm -rf dist && npm run build",
-    "deploy": "surge dist postcss-repl.surge.sh"
+    "test": "prettier \"*.{js,md}\" \"app/*.{js,css}\" --list-different && npm run build"
   },
   "dependencies": {
     "autoprefixer": "7.2.4",
