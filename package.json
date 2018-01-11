@@ -56,7 +56,7 @@
     "live-server": "^1.2.0",
     "onchange": "^3.3.0",
     "postcss-normalize": "^4.0.0",
-    "prettier": "1.9.2",
+    "prettier": "1.10.0",
     "script-runner": "^0.1.7",
     "surge": "^0.19.0",
     "uglify-es": "^3.3.5",
