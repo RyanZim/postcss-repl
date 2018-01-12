@@ -1,0 +1,73 @@
+<div>
+  <div class="input-output">
+    <textarea id="i" rows="25" cols="80" spellcheck="false" autofocus bind:value="input" on:keypress="tab(event)"></textarea>
+    <pre>{{ output }}</pre>
+  </div>
+  {{#if error}}
+    <pre class="error">{{ error }}</pre>
+  {{/if}}
+  <div class="plugins">
+    {{#each plugins as plugin}}
+      <label class="plugin">
+        <input type="checkbox" value="{{plugin.name}}" bind:checked="checkedPlugins[plugin.name]" />
+        {{ plugin.name }}
+        <a href="{{plugin.url}}" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+            <path d="m 8.746788,5.4163099 0,4.1630977 -8.74250548,0 0,-7.9098857 4.99571738,0 0,0.8326195 -4.16309782,0 0,6.2446471 7.07726632,0 0,-3.3304786 0.8326196,0 z m 1.2489295,-4.99571746 -4.574412,0 1.67981,1.66523926 -2.9045934,2.94331 1.177324,1.1773241 L 8.2784396,3.2631557 9.9957175,5 l 0,-4.57940756 z"/>
+          </svg>
+        </a>
+      </label>
+    {{/each}}
+  </div>
+</div>
+<script>
+  const css = `p {
+    color: red;
+  }`;
+
+  export default {
+    data() {
+      return {
+        input: css,
+        output: '',
+        error: '',
+        plugins: [],
+        selectedPlugins: [],
+        checkedPlugins: {},
+      };
+    },
+    methods: {
+      tab(event) {
+        if (event.key !== 'Tab') return;
+
+        event.preventDefault();
+        const position = event.target.selectionEnd;
+        const input = this.get('input');
+
+        if (event.shiftKey) {
+          // Ensure that we're only deleting whitespace
+          if (input.substring(position - 2, position) === '  ') {
+            this.set({
+              input: input.substring(0, position - 2) + input.substring(position),
+            });
+            setCursorPosition(event.target, position - 2);
+          }
+        } else {
+          this.set({
+            input:
+              input.substring(0, position) + '  ' + input.substring(position),
+          });
+          setCursorPosition(event.target, position + 2);
+        }
+      },
+    },
+  };
+
+  function setCursorPosition(element, start, end) {
+    if (typeof end === 'undefined') end = start;
+    setTimeout(() => {
+      element.focus();
+      element.setSelectionRange(start, end);
+    }, 0);
+  }
+</script>

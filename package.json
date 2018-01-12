@@ -15,7 +15,7 @@
   },
   "scripts": {
     "analyze": "npm run browserify -s -- --full-paths | discify --open",
-    "browserify": "NODE_ENV=production browserify app/index.js -g aliasify -g envify -i svgo -i source-map",
+    "browserify": "NODE_ENV=production browserify app/index.js -g aliasify -g envify -t sveltify -i svgo -i source-map",
     "prebuild": "mkdir -p dist",
     "build": "run-npm -p build:*",
     "build:html-css": "node build-html-css.js",
@@ -27,7 +27,7 @@
     "prewatch": "npm run build",
     "watch": "run-npm -p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
-    "watch:js": "onchange app/*.js -v -- npm run browserify -- -d -o dist/index.js",
+    "watch:js": "onchange app/*.js app/*.svelte -v -- npm run browserify -- -d -o dist/index.js",
     "watch:serve": "live-server dist"
   },
   "dependencies": {
@@ -46,8 +46,7 @@
     "postcss-nesting": "4.2.1",
     "postcss-ordered-values": "4.0.0-rc.2",
     "postcss-short": "4.1.0",
-    "postcss-simple-vars": "4.1.0",
-    "vue": "^2.5.13"
+    "postcss-simple-vars": "4.1.0"
   },
   "devDependencies": {
     "aliasify": "^2.1.0",
@@ -61,6 +60,7 @@
     "prettier": "1.10.1",
     "script-runner": "^0.1.7",
     "surge": "^0.19.0",
+    "sveltify": "^1.2.0",
     "uglify-es": "^3.3.5"
   },
   "aliasify": {
