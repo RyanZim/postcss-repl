@@ -4,7 +4,7 @@ const postcss = require('postcss');
 const pluginsObj = require('./plugins');
 const filterDupes = require('postcss-filter-plugins');
 
-const App = require('./App.svelte');
+const App = require('./components/App');
 
 const app = new App({
   target: document.getElementById('app'),
