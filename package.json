@@ -15,11 +15,11 @@
   },
   "scripts": {
     "analyze": "npm run browserify -s -- --full-paths | discify --open",
-    "browserify": "browserify app/index.js -g aliasify -t sveltify -i svgo -i source-map",
+    "browserify": "browserify app/index.js -g aliasify -i svgo -i source-map",
     "prebuild": "mkdir -p dist",
     "build": "run-npm -p build:*",
     "build:html-css": "node build-html-css.js",
-    "build:js": "npm run browserify -s | uglifyjs -c -m > dist/index.js",
+    "build:js": "node build-svelte.js && npm run browserify -s | uglifyjs -c -m > dist/index.js",
     "build:readme": "node build-readme.js",
     "format": "npm run prettier -- --write",
     "test": "npm run prettier -- --list-different && npm run build",
@@ -27,7 +27,8 @@
     "prewatch": "npm run build",
     "watch": "run-npm -p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
-    "watch:js": "onchange app/*.js app/*.svelte -v -- npm run browserify -- -d -o dist/index.js",
+    "watch:js": "onchange app/**/index.js -v -- npm run browserify -- -d -o dist/index.js",
+    "watch:svelte": "onchange app/components/App/App.js app/components/App/App.svelte -v -- node build-svelte.js",
     "watch:serve": "live-server dist"
   },
   "dependencies": {
@@ -59,7 +60,7 @@
     "prettier": "1.10.2",
     "script-runner": "^0.1.7",
     "surge": "^0.19.0",
-    "sveltify": "^1.2.0",
+    "svelte": "^1.51.1",
     "uglify-es": "^3.3.5"
   },
   "aliasify": {
