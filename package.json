@@ -14,11 +14,12 @@
     "url": "git+https://github.com/RyanZim/postcss-repl.git"
   },
   "scripts": {
-    "analyze": "NODE_ENV=production browserify --full-paths -g aliasify -g envify -i svgo -i source-map app/index.js | discify --open",
+    "analyze": "npm run browserify -s -- --full-paths | discify --open",
+    "browserify": "NODE_ENV=production browserify app/index.js -g aliasify -g envify -i svgo -i source-map",
     "prebuild": "mkdir -p dist",
     "build": "run-npm -p build:*",
     "build:html-css": "node build-html-css.js",
-    "build:js": "NODE_ENV=production browserify -g aliasify -g envify -i svgo -i source-map app/index.js | uglifyjs -c -m > dist/index.js",
+    "build:js": "npm run browserify -s | uglifyjs -c -m > dist/index.js",
     "build:readme": "node build-readme.js",
     "format": "npm run prettier -- --write",
     "test": "npm run prettier -- --list-different && npm run build",
@@ -26,7 +27,7 @@
     "prewatch": "npm run build",
     "watch": "run-npm -p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
-    "watch:js": "watchify -d -g aliasify app/index.js -i svgo -i source-map -o dist/index.js",
+    "watch:js": "onchange app/*.js -v -- npm run browserify -- -d -o dist/index.js",
     "watch:serve": "live-server dist"
   },
   "dependencies": {
@@ -60,8 +61,7 @@
     "prettier": "1.10.1",
     "script-runner": "^0.1.7",
     "surge": "^0.19.0",
-    "uglify-es": "^3.3.5",
-    "watchify": "^3.9.0"
+    "uglify-es": "^3.3.5"
   },
   "aliasify": {
     "aliases": {
