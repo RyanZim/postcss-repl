@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 const _debounce = require('lodash.debounce');
 
 const postcss = require('postcss');

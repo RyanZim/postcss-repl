@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "autoprefixer": "7.2.4",
+    "babel-polyfill": "^6.26.0",
     "cssnano-browser": "4.0.0-rc.2",
     "lodash.debounce": "^4.0.8",
     "lost": "8.2.0",
