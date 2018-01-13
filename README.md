@@ -9,6 +9,7 @@ An online REPL for [PostCSS](http://postcss.org/), including as many of the most
 <!-- AUTO-GENERATED; DO NOT EDIT -->
 
 * [`postcss-simple-vars`](https://www.npmjs.com/package/postcss-simple-vars)
+* [`postcss-advanced-variables`](https://www.npmjs.com/package/postcss-advanced-variables)
 * [`postcss-mixins`](https://www.npmjs.com/package/postcss-mixins)
 * [`postcss-nesting`](https://www.npmjs.com/package/postcss-nesting)
 * [`postcss-nested`](https://www.npmjs.com/package/postcss-nested)

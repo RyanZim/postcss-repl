@@ -1,5 +1,6 @@
 module.exports = [
   require('postcss-simple-vars'),
+  require('postcss-advanced-variables')({ disable: ['@import'] }),
   require('postcss-mixins'),
   require('postcss-nesting'),
   require('postcss-nested'),

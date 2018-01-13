@@ -27,7 +27,7 @@
     "prewatch": "npm run build",
     "watch": "run-npm -p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
-    "watch:js": "onchange app/**/index.js -v -- npm run browserify -- -d -o dist/index.js",
+    "watch:js": "onchange app/**/index.js app/*.js -v -- npm run browserify -- -d -o dist/index.js",
     "watch:serve": "live-server dist",
     "watch:svelte": "onchange app/components/App/App.js app/components/App/App.svelte -v -- node build-svelte.js"
   },
@@ -38,6 +38,7 @@
     "lodash.debounce": "^4.0.8",
     "lost": "8.2.0",
     "postcss": "^6.0.16",
+    "postcss-advanced-variables": "2.3.0",
     "postcss-calc": "6.0.1",
     "postcss-cssnext": "3.0.2",
     "postcss-filter-plugins": "3.0.0",
