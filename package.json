@@ -69,6 +69,9 @@
       "caniuse-lite": "./node_modules/caniuse-lite"
     }
   },
+  "browserslist": [
+    "> 0.5%"
+  ],
   "prettier": {
     "singleQuote": true,
     "trailingComma": "es5",
