@@ -19,7 +19,7 @@
     "prebuild": "mkdir -p dist",
     "build": "run-npm -p build:*",
     "build:html-css": "node build-html-css.js",
-    "build:js": "node build-svelte.js && npm run browserify -s | uglifyjs -c -m > dist/index.js",
+    "build:js": "node build-svelte.js && npm run browserify -s | babel | uglifyjs -c -m > dist/index.js",
     "build:readme": "node build-readme.js",
     "format": "npm run prettier -- --write && sort-package-json",
     "test": "npm run prettier -- --list-different && npm run build",
@@ -51,6 +51,8 @@
   },
   "devDependencies": {
     "aliasify": "^2.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "browserify": "^15.1.0",
     "cssnano": "^4.0.0-rc.2",
     "disc": "^1.3.3",
