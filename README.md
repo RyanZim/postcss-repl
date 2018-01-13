@@ -14,6 +14,7 @@ An online REPL for [PostCSS](http://postcss.org/), including as many of the most
 * [`postcss-nesting`](https://www.npmjs.com/package/postcss-nesting)
 * [`postcss-nested`](https://www.npmjs.com/package/postcss-nested)
 * [`postcss-short`](https://www.npmjs.com/package/postcss-short)
+* [`rucksack`](https://www.npmjs.com/package/rucksack)
 * [`lost`](https://www.npmjs.com/package/lost)
 * [`postcss-cssnext`](https://www.npmjs.com/package/postcss-cssnext)
 * [`postcss-ordered-values`](https://www.npmjs.com/package/postcss-ordered-values)

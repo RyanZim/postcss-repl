@@ -5,6 +5,7 @@ module.exports = [
   require('postcss-nesting'),
   require('postcss-nested'),
   require('postcss-short'),
+  require('rucksack-css'),
   require('lost'),
   require('postcss-cssnext')({ warnForDuplicates: false }),
   require('postcss-ordered-values'),

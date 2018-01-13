@@ -15,7 +15,7 @@
   },
   "scripts": {
     "analyze": "npm run browserify -s -- --full-paths | discify --open",
-    "browserify": "browserify app/index.js -g aliasify -i svgo -i source-map",
+    "browserify": "browserify app/index.js -g aliasify -i svgo -i postcss-reporter -i source-map",
     "prebuild": "mkdir -p dist",
     "build": "run-npm -p build:*",
     "build:html-css": "node build-html-css.js",
@@ -49,7 +49,8 @@
     "postcss-nesting": "4.2.1",
     "postcss-ordered-values": "4.0.0-rc.2",
     "postcss-short": "4.1.0",
-    "postcss-simple-vars": "4.1.0"
+    "postcss-simple-vars": "4.1.0",
+    "rucksack-css": "^1.0.2"
   },
   "devDependencies": {
     "aliasify": "^2.1.0",
