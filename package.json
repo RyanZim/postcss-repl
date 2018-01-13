@@ -21,15 +21,15 @@
     "build:html-css": "node build-html-css.js",
     "build:js": "node build-svelte.js && npm run browserify -s | uglifyjs -c -m > dist/index.js",
     "build:readme": "node build-readme.js",
-    "format": "npm run prettier -- --write",
+    "format": "npm run prettier -- --write && sort-package-json",
     "test": "npm run prettier -- --list-different && npm run build",
     "prettier": "prettier \"*.{js,md}\" \"app/*.{js,css}\"",
     "prewatch": "npm run build",
     "watch": "run-npm -p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
     "watch:js": "onchange app/**/index.js -v -- npm run browserify -- -d -o dist/index.js",
-    "watch:svelte": "onchange app/components/App/App.js app/components/App/App.svelte -v -- node build-svelte.js",
-    "watch:serve": "live-server dist"
+    "watch:serve": "live-server dist",
+    "watch:svelte": "onchange app/components/App/App.js app/components/App/App.svelte -v -- node build-svelte.js"
   },
   "dependencies": {
     "autoprefixer": "7.2.4",
@@ -59,6 +59,7 @@
     "postcss-normalize": "^4.0.0",
     "prettier": "1.10.2",
     "script-runner": "^0.1.7",
+    "sort-package-json": "^1.7.1",
     "surge": "^0.19.0",
     "svelte": "^1.51.1",
     "uglify-es": "^3.3.5"
