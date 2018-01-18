@@ -1,4 +1,5 @@
 const fs = require('fs');
+const prettier = require('prettier');
 const pluginsData = require('postcss-plugins');
 
 const plugins = require('./plugins')
@@ -23,7 +24,8 @@ replaceContent(
     .map(plugin => {
       return `* [\`${plugin.name}\`](${plugin.url})`;
     })
-    .join('\n')
+    .join('\n'),
+  { parser: 'markdown' }
 );
 
 replaceContent(
@@ -49,7 +51,7 @@ replaceContent(
     .join('\n')
 );
 
-function replaceContent(file, list) {
+function replaceContent(file, list, options) {
   const text = fs.readFileSync(file, 'utf8');
   const newText = text.replace(
     /(<!--|\/\*) AUTO-GENERATED; DO NOT EDIT (-->|\*\/)[\s\S]*(<!--|\/\*) END AUTO-GENERATED (-->|\*\/)/,
@@ -59,5 +61,14 @@ ${list}
 
 $3 END AUTO-GENERATED $4`
   );
-  fs.writeFileSync(file, newText);
+  fs.writeFileSync(file, format(newText, options));
+}
+
+function format(code, options = {}) {
+  options = Object.assign(
+    {},
+    prettier.resolveConfig.sync('package.json'),
+    options
+  );
+  return prettier.format(code, options);
 }
