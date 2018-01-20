@@ -1,6 +1,6 @@
 <div>
   <div class="input-output">
-    <textarea id="i" rows="25" cols="80" spellcheck="false" autofocus bind:value="input" on:keypress="tab(event)"></textarea>
+    <Ace bind:value="input" />
     <pre>{{ output }}</pre>
   </div>
   {{#if error}}
