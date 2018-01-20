@@ -29,7 +29,7 @@
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
     "watch:js": "onchange app/**/index.js app/*.js -v -- npm run browserify -- -d -o dist/index.js",
     "watch:serve": "live-server dist",
-    "watch:svelte": "onchange app/components/App/App.js app/components/App/App.svelte -v -- node build-svelte.js"
+    "watch:svelte": "onchange app/components/App/App.js app/components/App/App.svelte.html -v -- node build-svelte.js"
   },
   "dependencies": {
     "autoprefixer": "7.2.4",

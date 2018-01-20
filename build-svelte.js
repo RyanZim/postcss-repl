@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const svelte = require('svelte');
 
-const input = fs.readFileSync('app/components/App/App.svelte', 'utf-8');
+const input = fs.readFileSync('app/components/App/App.svelte.html', 'utf-8');
 
 svelte
   .preprocess(input, {
