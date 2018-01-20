@@ -1,0 +1,27 @@
+<div id="editor"></div>
+
+<script>
+  import ace from 'brace';
+  import 'brace/theme/iplastic';
+
+  export default {
+    data() {
+      return {
+        value: '',
+      };
+    },
+    oncreate() {
+      const editor = ace.edit('editor');
+      editor.$blockScrolling = Infinity; // to silence warning
+      editor.getSession().setTabSize(2);
+      editor.setTheme('ace/theme/iplastic');
+      editor.setFontSize(14); // 14px
+      editor.setValue(this.get('value'));
+      editor.clearSelection();
+      editor.focus();
+      editor.on('change', e => {
+        this.set({ value: editor.getValue() });
+      });
+    },
+  };
+</script>

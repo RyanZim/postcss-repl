@@ -2,35 +2,40 @@ const fs = require('fs');
 const path = require('path');
 const svelte = require('svelte');
 
-const input = fs.readFileSync('app/components/App/App.svelte.html', 'utf-8');
+Promise.all([
+  process('app/components/App/App.svelte.html'),
+  process('app/components/Ace/Ace.svelte.html'),
+]).catch(error => {
+  console.error(error.toString());
+  process.exit(1);
+});
 
-svelte
-  .preprocess(input, {
-    filename: path.resolve('app/components/App/App.svelte'),
-    script: ({ content, attributes, filename }) => {
-      if (content.trim() && attributes.src) {
-        throw new Error('Cannot pass src attribute and have inline content');
-      }
-      if (attributes.src) {
-        const code = fs.readFileSync(
-          path.join(path.dirname(filename), attributes.src),
-          'utf-8'
-        );
-        return { code };
-      }
-    },
-  })
-  .then(preprocessed => {
-    const { code } = svelte.compile(preprocessed.toString(), {
-      format: 'cjs',
+function process(input) {
+  return svelte
+    .preprocess(fs.readFileSync(input, 'utf-8'), {
+      filename: path.resolve(input),
+      script: ({ content, attributes, filename }) => {
+        if (content.trim() && attributes.src) {
+          throw new Error('Cannot pass src attribute and have inline content');
+        }
+        if (attributes.src) {
+          const code = fs.readFileSync(
+            path.join(path.dirname(filename), attributes.src),
+            'utf-8'
+          );
+          return { code };
+        }
+      },
+    })
+    .then(preprocessed => {
+      const { code } = svelte.compile(preprocessed.toString(), {
+        format: 'cjs',
+      });
+
+      fs.writeFileSync(
+        path.join(path.dirname(input), 'index.js'),
+        '// Auto-generated from the svelte component; do not edit manually\n' +
+          code
+      );
     });
-
-    fs.writeFileSync(
-      'app/components/App/index.js',
-      '// Auto-generated from App.svelte; do not edit manually\n' + code
-    );
-  })
-  .catch(error => {
-    console.error(error);
-    process.exit(1);
-  });
+}
