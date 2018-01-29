@@ -47,7 +47,7 @@
     "postcss-nested": "3.0.0",
     "postcss-nesting": "4.2.1",
     "postcss-ordered-values": "4.0.0-rc.2",
-    "postcss-plugins": "^1.10.2",
+    "postcss-plugins": "^1.10.3",
     "postcss-short": "4.1.0",
     "postcss-simple-vars": "4.1.0",
     "rucksack-css": "^1.0.2"

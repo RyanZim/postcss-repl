@@ -11,7 +11,7 @@ module.exports = {
     description: `Supports for Sass-style variables.`,
     tags: ['extensions', 'sass'],
     author: 'postcss',
-    stars: 259,
+    stars: 262,
   },
 
   'postcss-advanced-variables': {
@@ -21,10 +21,10 @@ module.exports = {
     pkgUrl: 'https://www.npmjs.com/package/postcss-advanced-variables',
     config: { disable: ['@import'] },
     url: 'https://github.com/jonathantneal/postcss-advanced-variables',
-    description: ``,
-    tags: [],
-    author: '',
-    stars: undefined,
+    description: `lets you use Sass-like variables, conditionals, and iterators in CSS.`,
+    tags: ['extensions', 'sass'],
+    author: 'jonathantneal',
+    stars: 35,
   },
 
   'postcss-mixins': {
@@ -37,7 +37,7 @@ module.exports = {
     description: `Enables mixins more powerful than Sass', defined within stylesheets or in JS.`,
     tags: ['extensions', 'sass'],
     author: 'postcss',
-    stars: 250,
+    stars: 257,
   },
 
   'postcss-nesting': {
@@ -50,7 +50,7 @@ module.exports = {
     description: `Nest one style rule inside another, following the CSS Nesting Module Level 3 specification.`,
     tags: ['extensions', 'future', 'media-queries'],
     author: 'jonathantneal',
-    stars: 151,
+    stars: 157,
   },
 
   'postcss-nested': {
@@ -63,7 +63,7 @@ module.exports = {
     description: `Unwraps nested rules.`,
     tags: ['extensions', 'sass'],
     author: 'postcss',
-    stars: 403,
+    stars: 414,
   },
 
   short: {
@@ -76,7 +76,7 @@ module.exports = {
     description: `Adds and extends numerous shorthand properties.`,
     tags: ['pack'],
     author: 'jonathantneal',
-    stars: 128,
+    stars: 138,
   },
 
   rucksack: {
@@ -89,7 +89,7 @@ module.exports = {
     description: `Plugin pack to speeds up CSS development with new features and shortcuts.`,
     tags: ['pack', 'future'],
     author: 'simplaio',
-    stars: 1736,
+    stars: 1742,
   },
 
   lost: {
@@ -102,20 +102,20 @@ module.exports = {
     description: `Feature-rich calc() grid system.`,
     tags: ['grids'],
     author: 'corysimmons',
-    stars: 3952,
+    stars: 3972,
   },
 
-  cssnext: {
-    name: 'cssnext',
+  'postcss-cssnext': {
+    name: 'postcss-cssnext',
     plugin: require('postcss-cssnext')({ warnForDuplicates: false }),
     pkgName: 'postcss-cssnext',
     pkgUrl: 'https://www.npmjs.com/package/postcss-cssnext',
     config: { warnForDuplicates: false },
-    url: 'https://github.com/cssnext/cssnext',
+    url: 'https://github.com/MoOx/postcss-cssnext',
     description: `Plugin pack that allows you to use future CSS features today.`,
     tags: ['pack', 'future'],
     author: 'cssnext',
-    stars: 4855,
+    stars: 4938,
   },
 
   'postcss-ordered-values': {
@@ -128,7 +128,7 @@ module.exports = {
     description: ` that ensures a consistent ordering of values.`,
     tags: ['optimizations'],
     author: 'ben-eb',
-    stars: 36,
+    stars: 37,
   },
 
   'postcss-calc': {
@@ -141,7 +141,7 @@ module.exports = {
     description: `Reduces calc() to values (when expressions involve the same units).`,
     tags: ['optimizations'],
     author: 'postcss',
-    stars: 106,
+    stars: 111,
   },
 
   'postcss-flexbugs-fixes': {
@@ -154,7 +154,7 @@ module.exports = {
     description: `fixes to some of known flexbox bugs`,
     tags: ['analysis'],
     author: 'luisrudge',
-    stars: 424,
+    stars: 442,
   },
 
   autoprefixer: {
@@ -167,7 +167,7 @@ module.exports = {
     description: `Adds vendor prefixes for you, using data from Can I Use.`,
     tags: ['fallbacks'],
     author: 'postcss',
-    stars: 14305,
+    stars: 14462,
   },
 
   cssnano: {
@@ -180,7 +180,7 @@ module.exports = {
     description: `Plugin pack that optimizes CSS size for use in production.`,
     tags: ['pack', 'optimizations'],
     author: 'ben-eb',
-    stars: 2142,
+    stars: 2178,
   },
 
   /* END AUTO-GENERATED */

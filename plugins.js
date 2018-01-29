@@ -5,7 +5,6 @@ module.exports = [
   {
     name: 'postcss-advanced-variables',
     config: { disable: ['@import'] },
-    url: 'https://github.com/jonathantneal/postcss-advanced-variables',
   },
   {
     name: 'postcss-mixins',
@@ -28,8 +27,7 @@ module.exports = [
     name: 'lost',
   },
   {
-    name: 'cssnext',
-    pkgName: 'postcss-cssnext',
+    name: 'postcss-cssnext',
     config: { warnForDuplicates: false },
   },
   {

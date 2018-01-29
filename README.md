@@ -16,7 +16,7 @@ An online REPL for [PostCSS](http://postcss.org/), including as many of the most
 * [`short`](https://github.com/jonathantneal/postcss-short)
 * [`rucksack`](https://github.com/simplaio/rucksack)
 * [`lost`](https://github.com/peterramsing/lost)
-* [`cssnext`](https://github.com/cssnext/cssnext)
+* [`postcss-cssnext`](https://github.com/MoOx/postcss-cssnext)
 * [`postcss-ordered-values`](https://github.com/ben-eb/postcss-ordered-values)
 * [`postcss-calc`](https://github.com/postcss/postcss-calc)
 * [`postcss-flexbugs-fixes`](https://github.com/luisrudge/postcss-flexbugs-fixes)
