@@ -8,20 +8,20 @@ An online REPL for [PostCSS](http://postcss.org/), including as many of the most
 
 <!-- AUTO-GENERATED; DO NOT EDIT -->
 
-* [`postcss-simple-vars`](https://www.npmjs.com/package/postcss-simple-vars)
-* [`postcss-advanced-variables`](https://www.npmjs.com/package/postcss-advanced-variables)
-* [`postcss-mixins`](https://www.npmjs.com/package/postcss-mixins)
-* [`postcss-nesting`](https://www.npmjs.com/package/postcss-nesting)
-* [`postcss-nested`](https://www.npmjs.com/package/postcss-nested)
-* [`postcss-short`](https://www.npmjs.com/package/postcss-short)
-* [`rucksack`](https://www.npmjs.com/package/rucksack)
-* [`lost`](https://www.npmjs.com/package/lost)
-* [`postcss-cssnext`](https://www.npmjs.com/package/postcss-cssnext)
-* [`postcss-ordered-values`](https://www.npmjs.com/package/postcss-ordered-values)
-* [`postcss-calc`](https://www.npmjs.com/package/postcss-calc)
-* [`postcss-flexbugs-fixes`](https://www.npmjs.com/package/postcss-flexbugs-fixes)
-* [`autoprefixer`](https://www.npmjs.com/package/autoprefixer)
-* [`cssnano`](https://www.npmjs.com/package/cssnano)
+* [`postcss-simple-vars`](https://github.com/postcss/postcss-simple-vars)
+* [`postcss-advanced-variables`](https://github.com/jonathantneal/postcss-advanced-variables)
+* [`postcss-mixins`](https://github.com/postcss/postcss-mixins)
+* [`postcss-nesting`](https://github.com/jonathantneal/postcss-nesting)
+* [`postcss-nested`](https://github.com/postcss/postcss-nested)
+* [`short`](https://github.com/jonathantneal/postcss-short)
+* [`rucksack`](https://github.com/simplaio/rucksack)
+* [`lost`](https://github.com/peterramsing/lost)
+* [`postcss-cssnext`](https://github.com/MoOx/postcss-cssnext)
+* [`postcss-ordered-values`](https://github.com/ben-eb/postcss-ordered-values)
+* [`postcss-calc`](https://github.com/postcss/postcss-calc)
+* [`postcss-flexbugs-fixes`](https://github.com/luisrudge/postcss-flexbugs-fixes)
+* [`autoprefixer`](https://github.com/postcss/autoprefixer)
+* [`cssnano`](https://github.com/ben-eb/cssnano)
 
 <!-- END AUTO-GENERATED -->
 
