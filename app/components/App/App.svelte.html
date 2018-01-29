@@ -1,7 +1,7 @@
 <div>
   <div class="input-output">
-    <Ace bind:value="input" />
-    <pre>{{ output }}</pre>
+    <Ace bind:value="input" id="input" />
+    <Ace bind:value="output" id="output" />
   </div>
   {{#if error}}
     <pre class="error">{{ error }}</pre>
