@@ -64,3 +64,7 @@ pre {
     margin: 0.5rem;
   }
 }
+
+#editor-output .ace_cursor {
+  display: none;
+}

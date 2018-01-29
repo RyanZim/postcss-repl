@@ -4,7 +4,8 @@ import Ace from '../Ace'
 
 const css = `p {
   color: red;
-}`;
+}
+`;
 
 export default {
   components: { Ace },
