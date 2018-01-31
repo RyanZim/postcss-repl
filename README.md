@@ -29,21 +29,7 @@ An online REPL for [PostCSS](http://postcss.org/), including as many of the most
 
 Contributions welcome! This is an [OPEN Open Source Project](http://openopensource.org/); individuals making significant and valuable contributions are given commit-access.
 
-A brief rundown of the tech used:
-
-* [Svelte](https://svelte.technology/) for the UI
-* [PostCSS](http://postcss.org/) for CSS (of course!)
-* [Browserify](http://browserify.org/) for bundling
-
-Please ensure you're using npm v5 or higher when working on this project. We have the `package-lock.json` committed to version control, please keep it up-to-date. (If you use `nvm`, you can just run `nvm use` in the project directory to get the correct version).
-
-We use prettier for code formatting, please run `npm run format` before committing and pushing. The plugin list above is auto-generated, run `npm run build:readme` (or `npm run build`) to regenerate it after adding a plugin.
-
-Run `npm run analyze` to get a breakdown of what packages are eating up bundle size.
-
-Please open an issue before making huge changes.
-
-And most importantly: **Be Nice!**
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ## License
 
