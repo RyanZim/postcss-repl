@@ -20,6 +20,7 @@ const common = {
     extensions: ['.js', '.json', '.html'],
     mainFields: ['browser', 'main', 'module'],
     alias: {
+      postcss: path.resolve(__dirname, 'node_modules/postcss'),
       'caniuse-lite': path.resolve(__dirname, 'node_modules/caniuse-lite'),
       autoprefixer: path.resolve(__dirname, 'node_modules/autoprefixer'),
     },

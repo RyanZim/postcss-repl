@@ -31,6 +31,10 @@ module.exports = [
     config: { warnForDuplicates: false },
   },
   {
+    name: 'postcss-preset-env',
+    config: { stage: 0 },
+  },
+  {
     name: 'postcss-ordered-values',
   },
   {
