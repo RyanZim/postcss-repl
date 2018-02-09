@@ -31,7 +31,7 @@
     "watch:svelte": "onchange app/components/App/App.js app/components/App/App.svelte.html app/components/Ace/Ace.svelte.html -v -- node build-svelte.js"
   },
   "dependencies": {
-    "autoprefixer": "7.2.5",
+    "autoprefixer": "7.2.6",
     "babel-polyfill": "^6.26.0",
     "brace": "^0.11.0",
     "cssnano-browser": "4.0.0-rc.2",
