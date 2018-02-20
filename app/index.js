@@ -1,12 +1,12 @@
-require('babel-polyfill');
+import 'babel-polyfill';
 
-const _debounce = require('lodash.debounce');
+import _debounce from 'lodash.debounce';
 
-const postcss = require('postcss');
-const pluginsObj = require('./plugins');
-const filterDupes = require('postcss-filter-plugins');
+import postcss from 'postcss';
+import pluginsObj from './plugins';
+import filterDupes from 'postcss-filter-plugins';
 
-const App = require('./components/App');
+import App from './components/App/App.svelte';
 
 const app = new App({
   target: document.getElementById('app'),

@@ -1,1 +1,0 @@
-This is the main svelte component. `App.svelte` is the main entry point; `App.js` contains the component's JS, and `index.js` is a auto-generated file containing the built component (this file is not in git).
