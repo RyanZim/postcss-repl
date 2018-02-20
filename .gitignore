@@ -1,7 +1,6 @@
 # Built files
-/app/components/*/index.js
 /dist/
-/vendor/
+/stats.json
 
 # Logs
 logs
