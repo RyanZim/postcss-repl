@@ -22,7 +22,7 @@
     "build:js": "webpack --progress",
     "format": "npm run prettier -- --write && sort-package-json",
     "test": "npm run prettier -- --list-different && npm run build-production",
-    "prettier": "prettier \"*.{js,md}\" \"app/*.{js,css}\"",
+    "prettier": "prettier \"**/*.{js,md,css}\"",
     "prewatch": "npm run build",
     "watch": "run-p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
