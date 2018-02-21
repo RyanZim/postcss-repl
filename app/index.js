@@ -6,7 +6,7 @@ import postcss from 'postcss';
 import pluginsObj from './plugins';
 import filterDupes from 'postcss-filter-plugins';
 
-import App from './components/App/App.svelte';
+import App from './components/App';
 
 const app = new App({
   target: document.getElementById('app'),
