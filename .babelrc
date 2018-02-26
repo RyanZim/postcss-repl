@@ -9,5 +9,8 @@
         "useBuiltIns": true
       }
     ]
+  ],
+  "plugins": [
+    "syntax-dynamic-import"
   ]
 }

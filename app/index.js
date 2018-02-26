@@ -19,20 +19,21 @@ const recompile = _debounce(
   () => {
     try {
       const input = app.get('input');
-      const plugins = app
-        .get('selectedPlugins')
-        .map(name => pluginsObj[name].plugin)
-        .concat([
-          filterDupes({
-            template: plugin =>
-              `${
-                plugin.postcssPlugin
-              } is included more than once in the plugin chain`,
-          }),
-        ]);
+      const plugins = app.get('selectedPlugins');
 
-      postcss(plugins)
-        .process(input, { from: undefined })
+      Promise.all(plugins.map(name => pluginsObj[name].import()))
+        .then(plugins => {
+          plugins = plugins.concat([
+            filterDupes({
+              template: plugin =>
+                `${
+                  plugin.postcssPlugin
+                } is included more than once in the plugin chain`,
+            }),
+          ]);
+
+          return postcss(plugins).process(input, { from: undefined });
+        })
         .then(result => {
           app.set({
             output: result.css,

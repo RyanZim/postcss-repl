@@ -7,9 +7,12 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 const common = {
-  entry: './app/index.js',
+  entry: {
+    index: './app/index.js',
+  },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'source-map',
@@ -62,6 +65,12 @@ const common = {
       /(postcss-mixins|browserslist)/,
       path.resolve(__dirname, 'noop')
     ),
+    new webpack.optimize.CommonsChunkPlugin({
+      minChunks: 3,
+      children: true,
+      deepChildren: true,
+      async: 'common',
+    }),
   ],
   node: {
     fs: 'empty',

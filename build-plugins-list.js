@@ -35,9 +35,9 @@ replaceContent(
       return `
   '${plugin.name}': {
     name: '${plugin.name}',
-    plugin: require('${plugin.pkgName}')${
-        plugin.config ? `(${JSON.stringify(plugin.config)})` : ''
-      },
+    import: () =>
+      import(/* webpackChunkName: '${plugin.name}' */ '${plugin.pkgName}')
+      ${plugin.config ? `.then(p => p(${JSON.stringify(plugin.config)}))` : ''},
     pkgName: '${plugin.pkgName}',
     pkgUrl: '${plugin.pkgUrl}',
     config: ${plugin.config ? JSON.stringify(plugin.config) : null},
@@ -45,7 +45,7 @@ replaceContent(
     description: \`${plugin.description || ''}\`,
     tags: ${JSON.stringify(plugin.tags)},
     author: '${plugin.author || ''}',
-    stars: ${plugin.stars},  
+    stars: ${plugin.stars},
   },`;
     })
     .join('\n')
