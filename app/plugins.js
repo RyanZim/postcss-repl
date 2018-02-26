@@ -1,9 +1,10 @@
-module.exports = {
+export default {
   /* AUTO-GENERATED; DO NOT EDIT */
 
   'postcss-simple-vars': {
     name: 'postcss-simple-vars',
-    plugin: require('postcss-simple-vars'),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-simple-vars' */ 'postcss-simple-vars'),
     pkgName: 'postcss-simple-vars',
     pkgUrl: 'https://www.npmjs.com/package/postcss-simple-vars',
     config: null,
@@ -16,7 +17,10 @@ module.exports = {
 
   'postcss-advanced-variables': {
     name: 'postcss-advanced-variables',
-    plugin: require('postcss-advanced-variables')({ disable: ['@import'] }),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-advanced-variables' */ 'postcss-advanced-variables').then(
+        p => p({ disable: ['@import'] })
+      ),
     pkgName: 'postcss-advanced-variables',
     pkgUrl: 'https://www.npmjs.com/package/postcss-advanced-variables',
     config: { disable: ['@import'] },
@@ -29,7 +33,8 @@ module.exports = {
 
   'postcss-mixins': {
     name: 'postcss-mixins',
-    plugin: require('postcss-mixins'),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-mixins' */ 'postcss-mixins'),
     pkgName: 'postcss-mixins',
     pkgUrl: 'https://www.npmjs.com/package/postcss-mixins',
     config: null,
@@ -42,7 +47,8 @@ module.exports = {
 
   'postcss-nesting': {
     name: 'postcss-nesting',
-    plugin: require('postcss-nesting'),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-nesting' */ 'postcss-nesting'),
     pkgName: 'postcss-nesting',
     pkgUrl: 'https://www.npmjs.com/package/postcss-nesting',
     config: null,
@@ -55,7 +61,8 @@ module.exports = {
 
   'postcss-nested': {
     name: 'postcss-nested',
-    plugin: require('postcss-nested'),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-nested' */ 'postcss-nested'),
     pkgName: 'postcss-nested',
     pkgUrl: 'https://www.npmjs.com/package/postcss-nested',
     config: null,
@@ -68,7 +75,7 @@ module.exports = {
 
   short: {
     name: 'short',
-    plugin: require('postcss-short'),
+    import: () => import(/* webpackChunkName: 'short' */ 'postcss-short'),
     pkgName: 'postcss-short',
     pkgUrl: 'https://www.npmjs.com/package/postcss-short',
     config: null,
@@ -81,7 +88,7 @@ module.exports = {
 
   rucksack: {
     name: 'rucksack',
-    plugin: require('rucksack-css'),
+    import: () => import(/* webpackChunkName: 'rucksack' */ 'rucksack-css'),
     pkgName: 'rucksack-css',
     pkgUrl: 'https://www.npmjs.com/package/rucksack-css',
     config: null,
@@ -94,7 +101,7 @@ module.exports = {
 
   lost: {
     name: 'lost',
-    plugin: require('lost'),
+    import: () => import(/* webpackChunkName: 'lost' */ 'lost'),
     pkgName: 'lost',
     pkgUrl: 'https://www.npmjs.com/package/lost',
     config: null,
@@ -107,7 +114,10 @@ module.exports = {
 
   'postcss-cssnext': {
     name: 'postcss-cssnext',
-    plugin: require('postcss-cssnext')({ warnForDuplicates: false }),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-cssnext' */ 'postcss-cssnext').then(
+        p => p({ warnForDuplicates: false })
+      ),
     pkgName: 'postcss-cssnext',
     pkgUrl: 'https://www.npmjs.com/package/postcss-cssnext',
     config: { warnForDuplicates: false },
@@ -120,7 +130,8 @@ module.exports = {
 
   'postcss-ordered-values': {
     name: 'postcss-ordered-values',
-    plugin: require('postcss-ordered-values'),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-ordered-values' */ 'postcss-ordered-values'),
     pkgName: 'postcss-ordered-values',
     pkgUrl: 'https://www.npmjs.com/package/postcss-ordered-values',
     config: null,
@@ -133,7 +144,7 @@ module.exports = {
 
   'postcss-calc': {
     name: 'postcss-calc',
-    plugin: require('postcss-calc'),
+    import: () => import(/* webpackChunkName: 'postcss-calc' */ 'postcss-calc'),
     pkgName: 'postcss-calc',
     pkgUrl: 'https://www.npmjs.com/package/postcss-calc',
     config: null,
@@ -146,7 +157,8 @@ module.exports = {
 
   'postcss-flexbugs-fixes': {
     name: 'postcss-flexbugs-fixes',
-    plugin: require('postcss-flexbugs-fixes'),
+    import: () =>
+      import(/* webpackChunkName: 'postcss-flexbugs-fixes' */ 'postcss-flexbugs-fixes'),
     pkgName: 'postcss-flexbugs-fixes',
     pkgUrl: 'https://www.npmjs.com/package/postcss-flexbugs-fixes',
     config: null,
@@ -159,7 +171,7 @@ module.exports = {
 
   autoprefixer: {
     name: 'autoprefixer',
-    plugin: require('autoprefixer'),
+    import: () => import(/* webpackChunkName: 'autoprefixer' */ 'autoprefixer'),
     pkgName: 'autoprefixer',
     pkgUrl: 'https://www.npmjs.com/package/autoprefixer',
     config: null,
@@ -172,7 +184,7 @@ module.exports = {
 
   cssnano: {
     name: 'cssnano',
-    plugin: require('cssnano-browser'),
+    import: () => import(/* webpackChunkName: 'cssnano' */ 'cssnano-browser'),
     pkgName: 'cssnano-browser',
     pkgUrl: 'https://www.npmjs.com/package/cssnano-browser',
     config: null,
