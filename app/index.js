@@ -1,12 +1,12 @@
-require('babel-polyfill');
+import 'babel-polyfill';
 
-const _debounce = require('lodash.debounce');
+import _debounce from 'lodash.debounce';
 
-const postcss = require('postcss');
-const pluginsObj = require('./plugins');
-const filterDupes = require('postcss-filter-plugins');
+import postcss from 'postcss';
+import pluginsObj from './plugins';
+import filterDupes from 'postcss-filter-plugins';
 
-const App = require('./components/App');
+import App from './components/App';
 
 const app = new App({
   target: document.getElementById('app'),
@@ -19,20 +19,21 @@ const recompile = _debounce(
   () => {
     try {
       const input = app.get('input');
-      const plugins = app
-        .get('selectedPlugins')
-        .map(name => pluginsObj[name].plugin)
-        .concat([
-          filterDupes({
-            template: plugin =>
-              `${
-                plugin.postcssPlugin
-              } is included more than once in the plugin chain`,
-          }),
-        ]);
+      const plugins = app.get('selectedPlugins');
 
-      postcss(plugins)
-        .process(input, { from: undefined })
+      Promise.all(plugins.map(name => pluginsObj[name].import()))
+        .then(plugins => {
+          plugins = plugins.concat([
+            filterDupes({
+              template: plugin =>
+                `${
+                  plugin.postcssPlugin
+                } is included more than once in the plugin chain`,
+            }),
+          ]);
+
+          return postcss(plugins).process(input, { from: undefined });
+        })
         .then(result => {
           app.set({
             output: result.css,

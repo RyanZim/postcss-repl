@@ -1,6 +1,6 @@
 // This is included from App.svelte
 
-import Ace from '../Ace'
+import Ace from '../Ace';
 
 const css = `p {
   color: red;
