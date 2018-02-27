@@ -1,8 +1,9 @@
+'use strict';
 const postcss = require('postcss');
 const fs = require('fs');
 
-let html = fs.readFileSync('app/index.html', 'utf8');
-let css = fs.readFileSync('app/index.css', 'utf8');
+const html = fs.readFileSync('app/index.html', 'utf8');
+const css = fs.readFileSync('app/index.css', 'utf8');
 
 postcss([
   require('postcss-normalize'),
@@ -11,7 +12,7 @@ postcss([
 ])
   .process(css, { from: 'app/index.css' })
   .then(result => {
-    output = html.replace(
+    const output = html.replace(
       '<!-- CSS auto-inlined here -->',
       `<style>
       ${result.css}

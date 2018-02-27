@@ -1,3 +1,4 @@
+'use strict';
 module.exports = [
   {
     name: 'postcss-simple-vars',

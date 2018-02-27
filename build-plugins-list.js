@@ -1,3 +1,4 @@
+'use strict';
 const fs = require('fs');
 const prettier = require('prettier');
 const pluginsData = require('postcss-plugins');

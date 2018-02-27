@@ -27,7 +27,7 @@ export default {
         editor.setValue(value, -1); // move cursor to the start
       });
     } else {
-      editor.on('change', e => {
+      editor.on('change', () => {
         this.set({ value: editor.getValue() });
       });
     }
