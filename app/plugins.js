@@ -128,6 +128,22 @@ export default {
     stars: 5039,
   },
 
+  'postcss-preset-env': {
+    name: 'postcss-preset-env',
+    import: () =>
+      import(/* webpackChunkName: 'postcss-preset-env' */ 'postcss-preset-env').then(
+        p => p({ stage: 0 })
+      ),
+    pkgName: 'postcss-preset-env',
+    pkgUrl: 'https://www.npmjs.com/package/postcss-preset-env',
+    config: { stage: 0 },
+    url: 'https://github.com/jonathantneal/postcss-preset-env',
+    description: `that converts modern CSS into something browsers understand`,
+    tags: ['fallbacks', 'future', 'pack'],
+    author: 'jonathantneal',
+    stars: 121,
+  },
+
   'postcss-ordered-values': {
     name: 'postcss-ordered-values',
     import: () =>
