@@ -39,6 +39,7 @@
     "autoprefixer": "8.0.0",
     "babel-polyfill": "^6.26.0",
     "brace": "^0.11.1",
+    "browserslist": "^3.1.1",
     "cssnano-browser": "4.0.0-rc.2",
     "lodash.debounce": "^4.0.8",
     "lost": "8.2.0",
@@ -79,10 +80,9 @@
     "surge": "^0.19.0",
     "svelte": "^1.56.0",
     "svelte-loader": "^2.3.3",
-    "uglifyjs-webpack-plugin": "^1.2.0",
-    "webpack": "^3.11.0",
+    "webpack": "^4.0.0",
     "webpack-bundle-analyzer": "^2.11.0",
-    "webpack-merge": "^4.1.2"
+    "webpack-cli": "^2.0.9"
   },
   "browserslist": [
     "> 0.5%"
