@@ -12,7 +12,7 @@ export default {
     description: `Supports for Sass-style variables.`,
     tags: ['extensions', 'sass'],
     author: 'postcss',
-    stars: 262,
+    stars: 264,
   },
 
   'postcss-advanced-variables': {
@@ -28,7 +28,7 @@ export default {
     description: `lets you use Sass-like variables, conditionals, and iterators in CSS.`,
     tags: ['extensions', 'sass'],
     author: 'jonathantneal',
-    stars: 35,
+    stars: 38,
   },
 
   'postcss-mixins': {
@@ -42,7 +42,7 @@ export default {
     description: `Enables mixins more powerful than Sass', defined within stylesheets or in JS.`,
     tags: ['extensions', 'sass'],
     author: 'postcss',
-    stars: 257,
+    stars: 261,
   },
 
   'postcss-nesting': {
@@ -56,7 +56,7 @@ export default {
     description: `Nest one style rule inside another, following the CSS Nesting Module Level 3 specification.`,
     tags: ['extensions', 'future', 'media-queries'],
     author: 'jonathantneal',
-    stars: 157,
+    stars: 164,
   },
 
   'postcss-nested': {
@@ -70,7 +70,7 @@ export default {
     description: `Unwraps nested rules.`,
     tags: ['extensions', 'sass'],
     author: 'postcss',
-    stars: 414,
+    stars: 426,
   },
 
   short: {
@@ -83,7 +83,7 @@ export default {
     description: `Adds and extends numerous shorthand properties.`,
     tags: ['pack'],
     author: 'jonathantneal',
-    stars: 138,
+    stars: 139,
   },
 
   rucksack: {
@@ -96,7 +96,7 @@ export default {
     description: `Plugin pack to speeds up CSS development with new features and shortcuts.`,
     tags: ['pack', 'future'],
     author: 'simplaio',
-    stars: 1742,
+    stars: 1750,
   },
 
   lost: {
@@ -109,7 +109,7 @@ export default {
     description: `Feature-rich calc() grid system.`,
     tags: ['grids'],
     author: 'corysimmons',
-    stars: 3972,
+    stars: 4008,
   },
 
   'postcss-cssnext': {
@@ -125,7 +125,7 @@ export default {
     description: `Plugin pack that allows you to use future CSS features today.`,
     tags: ['pack', 'future'],
     author: 'cssnext',
-    stars: 4938,
+    stars: 5039,
   },
 
   'postcss-ordered-values': {
@@ -139,7 +139,7 @@ export default {
     description: ` that ensures a consistent ordering of values.`,
     tags: ['optimizations'],
     author: 'ben-eb',
-    stars: 37,
+    stars: 39,
   },
 
   'postcss-calc': {
@@ -152,7 +152,7 @@ export default {
     description: `Reduces calc() to values (when expressions involve the same units).`,
     tags: ['optimizations'],
     author: 'postcss',
-    stars: 111,
+    stars: 116,
   },
 
   'postcss-flexbugs-fixes': {
@@ -166,7 +166,7 @@ export default {
     description: `fixes to some of known flexbox bugs`,
     tags: ['analysis'],
     author: 'luisrudge',
-    stars: 442,
+    stars: 457,
   },
 
   autoprefixer: {
@@ -179,7 +179,7 @@ export default {
     description: `Adds vendor prefixes for you, using data from Can I Use.`,
     tags: ['fallbacks'],
     author: 'postcss',
-    stars: 14462,
+    stars: 14710,
   },
 
   cssnano: {
@@ -192,7 +192,7 @@ export default {
     description: `Plugin pack that optimizes CSS size for use in production.`,
     tags: ['pack', 'optimizations'],
     author: 'ben-eb',
-    stars: 2178,
+    stars: 2229,
   },
 
   /* END AUTO-GENERATED */
