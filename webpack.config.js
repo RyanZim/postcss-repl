@@ -1,13 +1,8 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-
-const common = {
+module.exports = {
   entry: {
     index: './app/index.js',
   },
@@ -16,7 +11,7 @@ const common = {
     chunkFilename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  devtool: 'source-map',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   resolve: {
     extensions: ['.js', '.json', '.html'],
     mainFields: ['browser', 'main', 'module'],
@@ -24,6 +19,7 @@ const common = {
       postcss: path.resolve(__dirname, 'node_modules/postcss'),
       'caniuse-lite': path.resolve(__dirname, 'node_modules/caniuse-lite'),
       autoprefixer: path.resolve(__dirname, 'node_modules/autoprefixer'),
+      browserslist: path.resolve(__dirname, 'node_modules/browserslist'),
     },
   },
   module: {
@@ -62,30 +58,7 @@ const common = {
       },
     ],
   },
-  plugins: [
-    new webpack.ContextReplacementPlugin(
-      /(postcss-mixins|browserslist)/,
-      path.resolve(__dirname, 'noop')
-    ),
-    new webpack.optimize.CommonsChunkPlugin({
-      minChunks: 3,
-      children: true,
-      deepChildren: true,
-      async: 'common',
-    }),
-  ],
   node: {
     fs: 'empty',
   },
 };
-
-const production = {
-  plugins: [
-    new UglifyJsPlugin({
-      sourceMap: true,
-      parallel: true,
-    }),
-  ],
-};
-
-module.exports = NODE_ENV === 'production' ? merge(common, production) : common;
