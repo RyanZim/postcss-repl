@@ -7,7 +7,7 @@ const css = fs.readFileSync('app/index.css', 'utf8');
 
 postcss([
   require('postcss-normalize'),
-  require('postcss-nesting'),
+  require('postcss-preset-env')({ stage: 1 }),
   require('cssnano'),
 ])
   .process(css, { from: 'app/index.css' })
