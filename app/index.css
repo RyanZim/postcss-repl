@@ -37,7 +37,7 @@ $drawer-width: 20vw;
   left: -$drawer-width;
   width: $drawer-width;
   background: $dark;
-  overflow-y: scroll;
+  overflow-y: auto;
   transition: left 0.5s ease;
   & > .plugin {
     display: block;
@@ -79,7 +79,7 @@ $drawer-width: 20vw;
 }
 
 .error {
-  position: absolute;
+  position: fixed;
   bottom: -25vh;
   right: 0;
   z-index: 10;
