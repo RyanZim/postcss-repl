@@ -15,7 +15,7 @@
   },
   "scripts": {
     "analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json dist",
-    "prebuild": "mkdirp dist && node build-plugins-list.js",
+    "prebuild": "rimraf dist && mkdirp dist && node build-plugins-list.js",
     "build": "run-p build:*",
     "build-production": "cross-env NODE_ENV=production npm run build",
     "build:html-css": "node build-html-css.js",
@@ -76,6 +76,7 @@
     "onchange": "^3.3.0",
     "postcss-normalize": "^4.0.0",
     "prettier": "1.11.0",
+    "rimraf": "^2.6.2",
     "sort-package-json": "^1.11.0",
     "surge": "^0.19.0",
     "svelte": "^1.56.0",
