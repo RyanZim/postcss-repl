@@ -75,7 +75,7 @@
     "null-loader": "^0.1.1",
     "onchange": "^3.3.0",
     "postcss-normalize": "^4.0.0",
-    "prettier": "1.11.0",
+    "prettier": "1.11.1",
     "rimraf": "^2.6.2",
     "sort-package-json": "^1.11.0",
     "surge": "^0.19.0",
