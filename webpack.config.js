@@ -3,18 +3,10 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-  entry: {
-    index: './app/index.js',
-  },
-  output: {
-    filename: '[name].js',
-    chunkFilename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-  },
+  entry: './app/index.js',
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   resolve: {
-    extensions: ['.js', '.json', '.html'],
-    mainFields: ['browser', 'main', 'module'],
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.html'],
     alias: {
       postcss: path.resolve(__dirname, 'node_modules/postcss'),
       'caniuse-lite': path.resolve(__dirname, 'node_modules/caniuse-lite'),
@@ -48,7 +40,7 @@ module.exports = {
         },
       },
       {
-        test: /(svgo|source-map|postcss-reporter)/,
+        test: /(svgo|source-map|postcss-reporter|@csstools\/sass-import-resolve)/,
         use: 'null-loader',
       },
       {
