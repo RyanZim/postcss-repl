@@ -7,6 +7,7 @@ const css = fs.readFileSync('app/index.css', 'utf8');
 
 postcss([
   require('postcss-normalize'),
+  require('postcss-simple-vars'),
   require('postcss-preset-env')({ stage: 1 }),
   require('cssnano'),
 ])

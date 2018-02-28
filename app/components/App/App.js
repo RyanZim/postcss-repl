@@ -17,6 +17,7 @@ export default {
       plugins: [],
       selectedPlugins: [],
       checkedPlugins: {},
+      drawerOpen: true,
     };
   },
 };
