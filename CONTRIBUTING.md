@@ -18,7 +18,7 @@ A brief rundown of the tech used:
 
 * [Svelte](https://svelte.technology/) for the UI
 * [PostCSS](http://postcss.org/) for CSS (of course!)
-* [Browserify](http://browserify.org/) for bundling
+* [Webpack](https://webpack.js.org/) for bundling
 
 Please ensure you're using npm v5 or higher when working on this project. We have the `package-lock.json` committed to version control, please keep it up-to-date. (If you use `nvm`, you can just run `nvm use` in the project directory to get the correct version).
 
