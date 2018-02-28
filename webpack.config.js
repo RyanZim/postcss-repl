@@ -8,10 +8,22 @@ module.exports = {
   resolve: {
     extensions: ['.wasm', '.mjs', '.js', '.json', '.html'],
     alias: {
+      // Force common version
       postcss: path.resolve(__dirname, 'node_modules/postcss'),
       'caniuse-lite': path.resolve(__dirname, 'node_modules/caniuse-lite'),
       autoprefixer: path.resolve(__dirname, 'node_modules/autoprefixer'),
       browserslist: path.resolve(__dirname, 'node_modules/browserslist'),
+      // HACKS:
+      // postcss-cssnext requires this, and doesn't use .default to access it
+      'postcss-font-family-system-ui': path.resolve(
+        __dirname,
+        'node_modules/postcss-font-family-system-ui/index.bundle.js'
+      ),
+      // imports caniuse-lite with default instead of named exports
+      'postcss-preset-env': path.resolve(
+        __dirname,
+        'node_modules/postcss-preset-env/index.bundle.js'
+      ),
     },
   },
   module: {
