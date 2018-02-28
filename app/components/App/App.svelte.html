@@ -21,9 +21,7 @@
       <Ace bind:value="input" id="input" />
       <Ace bind:value="output" id="output" />
     </div>
-    {{#if error}}
-      <pre class="error">{{ error }}</pre>
-    {{/if}}
+    <pre class="error {{error ? 'visible' : ''}}">{{ error }}</pre>
   </div>
   <div class="plugins">
     <div class="header">
