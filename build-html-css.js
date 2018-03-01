@@ -2,6 +2,9 @@
 const postcss = require('postcss');
 const fs = require('fs');
 
+// copy favicon
+fs.copyFileSync('favicon.ico', 'dist/favicon.ico');
+
 const html = fs.readFileSync('app/index.html', 'utf8');
 const css = fs.readFileSync('app/index.css', 'utf8');
 
