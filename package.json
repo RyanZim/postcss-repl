@@ -78,7 +78,6 @@
     "prettier": "1.11.0",
     "rimraf": "^2.6.2",
     "sort-package-json": "^1.11.0",
-    "surge": "^0.19.0",
     "svelte": "^1.56.0",
     "svelte-loader": "^2.3.3",
     "webpack": "^4.0.0",
