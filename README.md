@@ -13,7 +13,7 @@ An online REPL for [PostCSS](http://postcss.org/), including as many of the most
 * [`postcss-mixins`](https://github.com/postcss/postcss-mixins)
 * [`postcss-nesting`](https://github.com/jonathantneal/postcss-nesting)
 * [`postcss-nested`](https://github.com/postcss/postcss-nested)
-* [`short`](https://github.com/jonathantneal/postcss-short)
+* [`postcss-short`](https://github.com/jonathantneal/postcss-short)
 * [`rucksack`](https://github.com/simplaio/rucksack)
 * [`lost`](https://github.com/peterramsing/lost)
 * [`postcss-cssnext`](https://github.com/MoOx/postcss-cssnext)

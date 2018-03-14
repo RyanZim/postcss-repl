@@ -81,10 +81,10 @@ export default {
     stars: 426,
   },
 
-  short: {
-    name: 'short',
+  'postcss-short': {
+    name: 'postcss-short',
     import: () =>
-      import(/* webpackChunkName: 'short' */ 'postcss-short').then(p =>
+      import(/* webpackChunkName: 'postcss-short' */ 'postcss-short').then(p =>
         p.default()
       ),
     pkgName: 'postcss-short',

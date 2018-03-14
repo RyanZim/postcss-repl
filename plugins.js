@@ -17,8 +17,7 @@ module.exports = [
     name: 'postcss-nested',
   },
   {
-    name: 'short',
-    pkgName: 'postcss-short',
+    name: 'postcss-short',
   },
   {
     name: 'rucksack',
