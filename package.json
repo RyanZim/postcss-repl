@@ -55,10 +55,10 @@
     "postcss-nesting": "4.2.1",
     "postcss-ordered-values": "4.0.0-rc.2",
     "postcss-plugins": "^1.11.0",
-    "postcss-preset-env": "^3.2.1",
+    "postcss-preset-env": "3.2.2",
     "postcss-short": "4.1.0",
     "postcss-simple-vars": "4.1.0",
-    "rucksack-css": "^1.0.2"
+    "rucksack-css": "1.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
