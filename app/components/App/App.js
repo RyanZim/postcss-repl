@@ -1,6 +1,6 @@
 // This is included from App.svelte
 
-import Ace from '../Ace';
+import CodeMirror from '../CodeMirror';
 
 const css = `p {
   color: red;
@@ -8,7 +8,7 @@ const css = `p {
 `;
 
 export default {
-  components: { Ace },
+  components: { CodeMirror },
   data() {
     return {
       input: css,
