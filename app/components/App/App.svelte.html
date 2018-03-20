@@ -18,8 +18,8 @@
       </label>
     </div>
     <div class="input-output">
-      <Ace bind:value="input" id="input" />
-      <Ace bind:value="output" id="output" />
+      <CodeMirror bind:value="input" id="input" />
+      <CodeMirror bind:value="output" id="output" />
     </div>
     <pre class="error {{error ? 'visible' : ''}}">{{ error }}</pre>
   </div>

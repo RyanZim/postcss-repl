@@ -1,4 +1,4 @@
-@import-normalize;
+@import 'codemirror';
 
 $gray: #eee;
 $dark: #ccc;
@@ -81,14 +81,13 @@ $drawer-width: 20vw;
 
 .input-output {
   display: flex;
-  & > * {
+  & > div {
     padding: 1rem;
-    margin: 1rem;
     flex: 0 1 50%;
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 8rem);
   }
-  & #editor-output .ace_cursor {
-    display: none;
+  & .CodeMirror {
+    height: 100%;
   }
 }
 
@@ -104,5 +103,16 @@ $drawer-width: 20vw;
   &.visible {
     bottom: 0;
     transition: bottom 0.5s ease-in;
+  }
+}
+
+/* codemirror hacks */
+.cm-s-default {
+  background: $gray;
+  & .CodeMirror-gutters {
+    background: #ddd;
+  }
+  & .CodeMirror-linenumber {
+    color: #666;
   }
 }
