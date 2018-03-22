@@ -36,11 +36,11 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "autoprefixer": "8.1.0",
+    "autoprefixer": "8.2.0",
     "babel-polyfill": "^6.26.0",
     "brace": "^0.11.1",
     "browserslist": "^3.1.2",
-    "caniuse-lite": "^1.0.30000814",
+    "caniuse-lite": "^1.0.30000819",
     "codemirror": "^5.36.0",
     "cssnano-browser": "4.0.0-rc.2",
     "lodash.debounce": "^4.0.8",
