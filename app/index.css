@@ -25,20 +25,24 @@ body {
 }
 
 $drawer-width: 20vw;
+$drawer-hint-width: 5px;
 
-.plugins,
-.container {
+.drawer {
   position: absolute;
   top: 0;
   height: 100vh;
 }
 
-.plugins {
-  left: -$drawer-width;
+.drawer {
+  left: calc(-$drawer-width + $drawer-hint-width);
   width: $drawer-width;
   background: $dark;
-  overflow-y: auto;
   transition: left 0.5s ease;
+  z-index: 100;
+}
+
+.plugins {
+  overflow-y: auto;
   & > .plugin {
     display: block;
     margin: 1rem;
@@ -46,36 +50,53 @@ $drawer-width: 20vw;
 }
 
 .container {
-  right: 0;
-  width: 100vw;
-  transition: width 0.5s ease;
+  transition: padding-left 0.5s ease;
 }
 
 .drawer-open {
-  & .plugins {
+  & .drawer {
     left: 0;
   }
   & .container {
-    width: calc(100vw - $drawer-width);
+    padding-left: $drawer-width;
   }
 }
 
 .header {
-  margin: 0 1rem;
-  margin-bottom: 0;
+  margin: 1rem 0 0 0;
+  padding: 0 1rem;
 }
 
-.config-toggle {
-  & span {
-    padding: 0.5rem;
-    background: $gray;
-    transition: background 0.5s ease;
-  }
-  & input:checked + span {
-    background: $dark;
-  }
+.drawer-toggle {
+  position: absolute;
+  top: 45%;
+  left: $drawer-width;
+  cursor: pointer;
+  padding: 8px;
+  background: $dark;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 0 16px 16px 0;
+  width: 24px;
+  transition: width 300ms ease-in-out;
+
   & input {
     display: none;
+  }
+
+  & svg {
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+  & span {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    width: 128px;
   }
 }
 

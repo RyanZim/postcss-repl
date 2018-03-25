@@ -63,13 +63,6 @@ const recompile = _debounce(
 
 app.observe('input', recompile);
 app.observe('selectedPlugins', recompile);
-app.observe('checkedPlugins', obj => {
-  const plugins = [];
-  for (const plugin in obj) {
-    if (obj[plugin]) plugins.push(plugin);
-  }
-  app.set({ selectedPlugins: plugins });
-});
 
 // Remove loading message
 document.getElementById('loading').outerHTML = '';

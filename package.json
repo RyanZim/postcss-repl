@@ -23,7 +23,7 @@
     "eslint": "eslint . --ignore-path .prettierignore",
     "format": "npm run eslint -- --fix && npm run prettier -- --write && sort-package-json",
     "test": "npm run eslint && npm run prettier -- --list-different && npm run build-production",
-    "prettier": "prettier \"**/*.{js,md,css}\"",
+    "prettier": "prettier \"**/*.{js,md,css}\" --write",
     "prewatch": "npm run build",
     "watch": "run-p watch:*",
     "watch:html-css": "onchange app/index.html app/index.css -v -- npm run build:html-css",
