@@ -1,6 +1,8 @@
 // This is included from App.svelte
 
 import CodeMirror from '../CodeMirror';
+import GithubCorner from '../GithubCorner';
+import Drawer from '../Drawer';
 
 const css = `p {
   color: red;
@@ -8,7 +10,7 @@ const css = `p {
 `;
 
 export default {
-  components: { CodeMirror },
+  components: { CodeMirror, GithubCorner, Drawer },
   data() {
     return {
       input: css,
@@ -16,7 +18,6 @@ export default {
       error: '',
       plugins: [],
       selectedPlugins: [],
-      checkedPlugins: {},
       drawerOpen: true,
     };
   },
