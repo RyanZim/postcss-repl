@@ -39,3 +39,53 @@ export default {
   },
 };
 </script>
+
+<style>
+@import '../variables.css';
+
+.drawer {
+  left: calc(-$drawer-width + $drawer-hint-width);
+  width: $drawer-width;
+}
+
+.container {
+  transition: padding-left 0.5s ease;
+}
+
+.drawer-open {
+  & .drawer {
+    left: 0;
+  }
+  & .container {
+    padding-left: $drawer-width;
+  }
+}
+
+.input-output {
+  display: flex;
+  & > div {
+    padding: 1rem;
+    flex: 0 1 50%;
+    height: calc(100vh - 8rem);
+  }
+  & .CodeMirror {
+    height: 100%;
+  }
+}
+
+.error {
+  position: fixed;
+  bottom: -25vh;
+  right: 0;
+  z-index: 10;
+  margin: 1rem;
+  padding: 1rem;
+  background: $dark;
+  color: red;
+
+  &.visible {
+    bottom: 0;
+    transition: bottom 0.5s ease-in;
+  }
+}
+</style>

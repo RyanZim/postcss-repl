@@ -1,7 +1,4 @@
-@import 'codemirror';
-
-$gray: #eee;
-$dark: #ccc;
+@import 'variables.css';
 
 html {
   font-family: sans-serif;
@@ -24,117 +21,7 @@ body {
   }
 }
 
-$drawer-width: 20vw;
-$drawer-hint-width: 5px;
-
-.drawer {
-  position: absolute;
-  top: 0;
-  height: 100vh;
-}
-
-.drawer {
-  left: calc(-$drawer-width + $drawer-hint-width);
-  width: $drawer-width;
-  background: $dark;
-  transition: left 0.5s ease;
-  z-index: 100;
-}
-
-.plugins {
-  overflow-y: auto;
-  & > .plugin {
-    display: block;
-    margin: 1rem;
-  }
-}
-
-.container {
-  transition: padding-left 0.5s ease;
-}
-
-.drawer-open {
-  & .drawer {
-    left: 0;
-  }
-  & .container {
-    padding-left: $drawer-width;
-  }
-}
-
 .header {
   margin: 1rem 0 0 0;
   padding: 0 1rem;
-}
-
-.drawer-toggle {
-  position: absolute;
-  top: 45%;
-  left: $drawer-width;
-  cursor: pointer;
-  padding: 8px;
-  padding-left: 0;
-  background: $dark;
-  white-space: nowrap;
-  overflow: hidden;
-  border-radius: 0 16px 16px 0;
-  width: 24px;
-  transition: width 300ms ease-in-out;
-
-  & input {
-    display: none;
-  }
-
-  & svg {
-    height: 24px;
-    width: 24px;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-  }
-
-  & span {
-    vertical-align: middle;
-  }
-
-  &:hover {
-    width: 135px;
-  }
-}
-
-.input-output {
-  display: flex;
-  & > div {
-    padding: 1rem;
-    flex: 0 1 50%;
-    height: calc(100vh - 8rem);
-  }
-  & .CodeMirror {
-    height: 100%;
-  }
-}
-
-.error {
-  position: fixed;
-  bottom: -25vh;
-  right: 0;
-  z-index: 10;
-  margin: 1rem;
-  padding: 1rem;
-  background: $dark;
-  color: red;
-  &.visible {
-    bottom: 0;
-    transition: bottom 0.5s ease-in;
-  }
-}
-
-/* codemirror hacks */
-.cm-s-default {
-  background: $gray;
-  & .CodeMirror-gutters {
-    background: #ddd;
-  }
-  & .CodeMirror-linenumber {
-    color: #666;
-  }
 }
