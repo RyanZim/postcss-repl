@@ -5,7 +5,7 @@ module.exports = {
   entry: './app/index.js',
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   resolve: {
-    extensions: ['.wasm', '.mjs', '.js', '.json', '.html'],
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.svelte.html'],
     alias: {
       // Force common version
       postcss: path.resolve(__dirname, 'node_modules/postcss'),
