@@ -1,11 +1,12 @@
 'use strict';
 const path = require('path');
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 
 module.exports = {
   entry: './app/index.js',
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   resolve: {
-    extensions: ['.wasm', '.mjs', '.js', '.json', '.html'],
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.svelte.html', '.html'],
     alias: {
       // Force common version
       postcss: path.resolve(__dirname, 'node_modules/postcss'),
@@ -18,6 +19,7 @@ module.exports = {
         'node_modules/postcss-font-family-system-ui/index.bundle.js'
       ),
     },
+    plugins: [new DirectoryNamedWebpackPlugin()],
   },
   module: {
     rules: [

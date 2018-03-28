@@ -71,6 +71,7 @@
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.1.4",
     "cssnano": "^4.0.0-rc.2",
+    "directory-named-webpack-plugin": "^4.0.0",
     "eslint": "^4.18.2",
     "eslint-config-problems": "0.0.2",
     "live-server": "^1.2.0",
