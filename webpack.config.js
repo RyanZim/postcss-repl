@@ -1,5 +1,4 @@
 'use strict';
-const fs = require('fs');
 const path = require('path');
 
 module.exports = {
@@ -25,25 +24,7 @@ module.exports = {
       {
         test: /\.svelte\.html$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            script({ content, attributes, filename }) {
-              if (content.trim() && attributes.src) {
-                throw new Error(
-                  'Cannot pass src attribute and have inline content'
-                );
-              }
-              if (attributes.src) {
-                const code = fs.readFileSync(
-                  path.join(path.dirname(filename), attributes.src),
-                  'utf-8'
-                );
-                return { code };
-              }
-            },
-          },
-        },
+        use: 'svelte-loader',
       },
       {
         test: /(svgo|source-map|postcss-reporter|@csstools\/sass-import-resolve)/,
