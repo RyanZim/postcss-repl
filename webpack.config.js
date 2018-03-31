@@ -1,5 +1,7 @@
 'use strict';
 const path = require('path');
+const postcss = require('postcss');
+const { plugins } = require('./postcss.config');
 
 module.exports = {
   entry: './app/index.js',
@@ -24,7 +26,19 @@ module.exports = {
       {
         test: /\.svelte\.html$/,
         exclude: /node_modules/,
-        use: 'svelte-loader',
+        use: {
+          loader: 'svelte-loader',
+          options: {
+            style: ({ content, filename }) => {
+              return postcss(plugins)
+                .process(content, { from: filename })
+                .then(result => ({ code: result.css }))
+                .catch(err => {
+                  console.error('failed to preprocess style', err);
+                });
+            },
+          },
+        },
       },
       {
         test: /(svgo|source-map|postcss-reporter|@csstools\/sass-import-resolve)/,

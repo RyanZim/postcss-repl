@@ -50,3 +50,58 @@ export default {
   },
 };
 </script>
+
+<style>
+@import '../variables.css';
+
+.drawer {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  background: $dark;
+  transition: left 0.5s ease;
+  z-index: 100;
+}
+
+.plugins {
+  overflow-y: auto;
+  & > .plugin {
+    display: block;
+    margin: 1rem;
+  }
+}
+
+.drawer-toggle {
+  position: absolute;
+  top: 45%;
+  left: $drawer-width;
+  cursor: pointer;
+  padding: 8px;
+  padding-left: 0;
+  background: $dark;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 0 16px 16px 0;
+  width: 24px;
+  transition: width 300ms ease-in-out;
+
+  & input {
+    display: none;
+  }
+
+  & svg {
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+  & span {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    width: 135px;
+  }
+}
+</style>

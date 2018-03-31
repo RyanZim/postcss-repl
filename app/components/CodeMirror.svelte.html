@@ -43,3 +43,21 @@ export default {
   },
 };
 </script>
+
+<style>
+/* codemirror css is imported in app/index.css to avoid unneeded scoping */
+@import '../variables.css';
+
+/* codemirror hacks */
+.cm-s-default {
+  background: $gray;
+
+  & .CodeMirror-gutters {
+    background: #ddd;
+  }
+
+  & .CodeMirror-linenumber {
+    color: #666;
+  }
+}
+</style>
