@@ -12,6 +12,7 @@
   </div>
   <Drawer plugins="{{plugins}}" bind:open="drawerOpen"
           on:selectedPluginsChanged="set({ selectedPlugins: event })"
+          on:browsersChanged="set({ browsers: event })"
           on:toggle="set({ drawerOpen: event })"
   />
 </div>
@@ -34,6 +35,7 @@ export default {
       error: '',
       plugins: [],
       selectedPlugins: [],
+      browsers: '',
       drawerOpen: true,
     };
   },
