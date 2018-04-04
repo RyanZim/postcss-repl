@@ -37,10 +37,7 @@ replaceContent(
   '${plugin.name}': {
     name: '${plugin.name}',
     import: () =>
-      import(/* webpackChunkName: '${plugin.name}' */ '${plugin.pkgName}')
-      .then(p => p.default(${
-        plugin.config ? JSON.stringify(plugin.config) : ''
-      })),
+      import(/* webpackChunkName: '${plugin.name}' */ '${plugin.pkgName}'),
     pkgName: '${plugin.pkgName}',
     pkgUrl: '${plugin.pkgUrl}',
     config: ${plugin.config ? JSON.stringify(plugin.config) : null},
