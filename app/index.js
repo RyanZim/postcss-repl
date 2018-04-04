@@ -6,6 +6,7 @@ import postcss from 'postcss';
 import pluginsObj from './plugins';
 import filterDupes from 'postcss-filter-plugins';
 
+import { browserslistDefaults } from './util';
 import App from './components/App';
 
 const app = new App({
@@ -23,9 +24,15 @@ const recompile = _debounce(
 
       Promise.all(
         plugins.map(name => {
+          const config = Object.assign(
+            {
+              browsers: app.get('browsers') || browserslistDefaults,
+            },
+            pluginsObj[name].config
+          );
           return pluginsObj[name]
             .import()
-            .then(plugin => plugin.default(pluginsObj[name].config));
+            .then(plugin => plugin.default(config));
         })
       )
         .then(plugins => {
@@ -69,6 +76,7 @@ const recompile = _debounce(
 
 app.observe('input', recompile);
 app.observe('selectedPlugins', recompile);
+app.observe('browsers', recompile);
 
 // Remove loading message
 document.getElementById('loading').outerHTML = '';

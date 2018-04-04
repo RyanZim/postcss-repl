@@ -11,10 +11,8 @@
     <span>{{open ? "Hide": "Show"}} Config</span>
   </label>
 
-  <div class="plugins">
-    <div class="header">
-      <h2>Plugins:</h2>
-    </div>
+  <div class="drawer-container">
+    <h2>Plugins:</h2>
     {{#each plugins as plugin}}
     <label class="plugin">
       <input type="checkbox" value="{{plugin.name}}" bind:checked="checkedPlugins[plugin.name]" />
@@ -26,17 +24,22 @@
       </a>
     </label>
     {{/each}}
+    <h3>Browserslist:</h3>
+    <input bind:value="browsers" type="text" placeholder="{{ browserslistDefaults }}" />
   </div>
 </div>
 
 <script>
+import { browserslistDefaults } from '../util';
 export default {
   components: {},
   data() {
     return {
       plugins: [],
       checkedPlugins: {},
+      browsers: '',
       open: true,
+      browserslistDefaults,
     };
   },
   oncreate() {
@@ -46,6 +49,10 @@ export default {
         if (obj[plugin]) plugins.push(plugin);
       }
       this.fire('selectedPluginsChanged', plugins);
+    });
+
+    this.observe('browsers', browsers => {
+      this.fire('browsersChanged', browsers);
     });
   },
 };
@@ -63,11 +70,16 @@ export default {
   z-index: 100;
 }
 
-.plugins {
+.drawer-container {
   overflow-y: auto;
+  margin: 1rem;
   & > .plugin {
     display: block;
-    margin: 1rem;
+    margin: 1rem 0;
+  }
+  & > input {
+    display: block;
+    width: calc(100% - 1rem);
   }
 }
 
