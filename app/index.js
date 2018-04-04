@@ -21,7 +21,13 @@ const recompile = _debounce(
       const input = app.get('input');
       const plugins = app.get('selectedPlugins');
 
-      Promise.all(plugins.map(name => pluginsObj[name].import()))
+      Promise.all(
+        plugins.map(name => {
+          return pluginsObj[name]
+            .import()
+            .then(plugin => plugin.default(pluginsObj[name].config));
+        })
+      )
         .then(plugins => {
           plugins = plugins.concat([
             filterDupes({
