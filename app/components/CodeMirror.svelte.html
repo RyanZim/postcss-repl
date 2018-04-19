@@ -1,4 +1,4 @@
-<div id="editor-{{id}}" ref:editor></div>
+<div id="editor-{id}" ref:editor></div>
 
 <script>
 import CodeMirror from 'codemirror';
@@ -23,18 +23,20 @@ export default {
       },
     };
 
-    if (this.get('id') === 'output') {
+    const { id, value } = this.get();
+
+    if (id === 'output') {
       const editor = new CodeMirror(
-        document.getElementById(`editor-${this.get('id')}`),
+        document.getElementById(`editor-${id}`),
         Object.assign({ readOnly: 'nocursor' }, commonOpts)
       );
-      this.observe('value', value => {
-        editor.setValue(value);
+      this.on('state', ({ changed, current }) => {
+        if (changed.value) editor.setValue(current.value);
       });
     } else {
       const editor = new CodeMirror(
-        document.getElementById(`editor-${this.get('id')}`),
-        Object.assign({ value: this.get('value') }, commonOpts)
+        document.getElementById(`editor-${id}`),
+        Object.assign({ value }, commonOpts)
       );
       editor.on('change', () => {
         this.set({ value: editor.getValue() });
@@ -48,16 +50,19 @@ export default {
 /* codemirror css is imported in app/index.css to avoid unneeded scoping */
 @import '../variables.css';
 
-/* codemirror hacks */
-.cm-s-default {
-  background: $gray;
+/* codemirror hacks; have to use :global since they're not in the template */
+:global(.CodeMirror) {
+  height: 100%;
+  &.cm-s-default {
+    background: $gray;
 
-  & .CodeMirror-gutters {
-    background: #ddd;
-  }
+    & .CodeMirror-gutters {
+      background: #ddd;
+    }
 
-  & .CodeMirror-linenumber {
-    color: #666;
+    & .CodeMirror-linenumber {
+      color: #666;
+    }
   }
 }
 </style>
