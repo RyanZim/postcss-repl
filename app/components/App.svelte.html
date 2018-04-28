@@ -1,4 +1,4 @@
-<div class="{{drawerOpen ? 'drawer-open' : ''}}">
+<div class="{drawerOpen ? 'drawer-open' : ''}">
   <div class="container">
     <GithubCorner />
     <div class="header">
@@ -8,9 +8,9 @@
       <CodeMirror bind:value="input" id="input" />
       <CodeMirror bind:value="output" id="output" />
     </div>
-    <pre class="error {{error ? 'visible' : ''}}">{{ error }}</pre>
+    <pre class="error {error ? 'visible' : ''}">{error}</pre>
   </div>
-  <Drawer plugins="{{plugins}}" bind:open="drawerOpen"
+  <Drawer plugins="{plugins}" bind:open="drawerOpen"
           on:selectedPluginsChanged="set({ selectedPlugins: event })"
           on:browsersChanged="set({ browsers: event })"
           on:toggle="set({ drawerOpen: event })"
@@ -45,19 +45,11 @@ export default {
 <style>
 @import '../variables.css';
 
-.drawer {
-  left: calc(-$drawer-width + $drawer-hint-width);
-  width: $drawer-width;
-}
-
 .container {
   transition: padding-left 0.5s ease;
 }
 
 .drawer-open {
-  & .drawer {
-    left: 0;
-  }
   & .container {
     padding-left: $drawer-width;
   }
@@ -65,13 +57,10 @@ export default {
 
 .input-output {
   display: flex;
-  & > div {
+  & > :global(div) {
     padding: 1rem;
     flex: 0 1 50%;
     height: calc(100vh - 8rem);
-  }
-  & .CodeMirror {
-    height: 100%;
   }
 }
 

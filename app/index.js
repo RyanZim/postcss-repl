@@ -16,17 +16,16 @@ const app = new App({
   },
 });
 
-const recompile = _debounce(
+const compile = _debounce(
   () => {
     try {
-      const input = app.get('input');
-      const plugins = app.get('selectedPlugins');
+      const { input, browsers, selectedPlugins: plugins } = app.get();
 
       Promise.all(
         plugins.map(name => {
           const config = Object.assign(
             {
-              browsers: app.get('browsers') || browserslistDefaults,
+              browsers: browsers || browserslistDefaults,
             },
             pluginsObj[name].config
           );
@@ -74,9 +73,10 @@ const recompile = _debounce(
   { leading: true }
 );
 
-app.observe('input', recompile);
-app.observe('selectedPlugins', recompile);
-app.observe('browsers', recompile);
+app.on('state', ({ changed }) => {
+  if (changed.input || changed.selectedPlugins || changed.browsers) compile();
+});
+compile();
 
 // Remove loading message
 document.getElementById('loading').outerHTML = '';
