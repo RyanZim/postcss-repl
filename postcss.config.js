@@ -4,7 +4,7 @@ module.exports = {
     require('postcss-import'),
     require('postcss-normalize'),
     require('postcss-simple-vars'),
-    require('postcss-preset-env')({ stage: 1 }),
+    require('postcss-preset-env')({ stage: 0 }),
     require('cssnano'),
   ],
 };
