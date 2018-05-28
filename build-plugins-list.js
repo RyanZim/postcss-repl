@@ -23,10 +23,9 @@ replaceContent(
   'README.md',
   plugins
     .map(plugin => {
-      return `* [\`${plugin.name}\`](${plugin.url})`;
+      return `- [\`${plugin.name}\`](${plugin.url})`;
     })
-    .join('\n'),
-  { parser: 'markdown' }
+    .join('\n')
 );
 
 replaceContent(
@@ -51,7 +50,7 @@ replaceContent(
     .join('\n')
 );
 
-function replaceContent(file, list, options) {
+function replaceContent(file, list) {
   const text = fs.readFileSync(file, 'utf8');
   const newText = text.replace(
     /(<!--|\/\*) AUTO-GENERATED; DO NOT EDIT (-->|\*\/)[\s\S]*(<!--|\/\*) END AUTO-GENERATED (-->|\*\/)/,
@@ -61,14 +60,14 @@ ${list}
 
 $3 END AUTO-GENERATED $4`
   );
-  fs.writeFileSync(file, format(newText, options));
+  fs.writeFileSync(file, format(newText, file));
 }
 
-function format(code, options = {}) {
-  options = Object.assign(
+function format(code, filepath) {
+  const options = Object.assign(
     {},
     prettier.resolveConfig.sync('package.json'),
-    options
+    { filepath }
   );
   return prettier.format(code, options);
 }

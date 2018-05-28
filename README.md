@@ -8,21 +8,21 @@ An online REPL for [PostCSS](http://postcss.org/), including as many of the most
 
 <!-- AUTO-GENERATED; DO NOT EDIT -->
 
-* [`postcss-simple-vars`](https://github.com/postcss/postcss-simple-vars)
-* [`postcss-advanced-variables`](https://github.com/jonathantneal/postcss-advanced-variables)
-* [`postcss-mixins`](https://github.com/postcss/postcss-mixins)
-* [`postcss-nesting`](https://github.com/jonathantneal/postcss-nesting)
-* [`postcss-nested`](https://github.com/postcss/postcss-nested)
-* [`postcss-short`](https://github.com/jonathantneal/postcss-short)
-* [`rucksack`](https://github.com/simplaio/rucksack)
-* [`lost`](https://github.com/peterramsing/lost)
-* [`postcss-cssnext`](https://github.com/MoOx/postcss-cssnext)
-* [`postcss-preset-env`](https://github.com/jonathantneal/postcss-preset-env)
-* [`postcss-ordered-values`](https://github.com/ben-eb/postcss-ordered-values)
-* [`postcss-calc`](https://github.com/postcss/postcss-calc)
-* [`postcss-flexbugs-fixes`](https://github.com/luisrudge/postcss-flexbugs-fixes)
-* [`autoprefixer`](https://github.com/postcss/autoprefixer)
-* [`cssnano`](https://github.com/ben-eb/cssnano)
+- [`postcss-simple-vars`](https://github.com/postcss/postcss-simple-vars)
+- [`postcss-advanced-variables`](https://github.com/jonathantneal/postcss-advanced-variables)
+- [`postcss-mixins`](https://github.com/postcss/postcss-mixins)
+- [`postcss-nesting`](https://github.com/jonathantneal/postcss-nesting)
+- [`postcss-nested`](https://github.com/postcss/postcss-nested)
+- [`postcss-short`](https://github.com/jonathantneal/postcss-short)
+- [`rucksack`](https://github.com/simplaio/rucksack)
+- [`lost`](https://github.com/peterramsing/lost)
+- [`postcss-cssnext`](https://github.com/MoOx/postcss-cssnext)
+- [`postcss-preset-env`](https://github.com/jonathantneal/postcss-preset-env)
+- [`postcss-ordered-values`](https://github.com/ben-eb/postcss-ordered-values)
+- [`postcss-calc`](https://github.com/postcss/postcss-calc)
+- [`postcss-flexbugs-fixes`](https://github.com/luisrudge/postcss-flexbugs-fixes)
+- [`autoprefixer`](https://github.com/postcss/autoprefixer)
+- [`cssnano`](https://github.com/ben-eb/cssnano)
 
 <!-- END AUTO-GENERATED -->
 
