@@ -3,6 +3,7 @@ const fs = require('fs');
 const prettier = require('prettier');
 const pluginsData = require('postcss-plugins');
 
+// Compile data
 const plugins = require('./plugins')
   .map(plugin =>
     Object.assign(plugin, pluginsData.find(p => p.name === plugin.name) || {})
@@ -19,55 +20,42 @@ const plugins = require('./plugins')
     stars: plugin.stars,
   }));
 
-replaceContent(
+// Update README.md
+writeFormatted(
   'README.md',
-  plugins
-    .map(plugin => {
-      return `- [\`${plugin.name}\`](${plugin.url})`;
-    })
-    .join('\n')
+  fs
+    .readFileSync('README.md', 'utf8')
+    .replace(
+      /<!-- AUTO-GENERATED; DO NOT EDIT -->[\s\S]*<!-- END AUTO-GENERATED -->/,
+      `<!-- AUTO-GENERATED; DO NOT EDIT -->\n${plugins
+        .map(plugin => `- [\`${plugin.name}\`](${plugin.url})`)
+        .join('\n')}\n\n<!-- END AUTO-GENERATED -->`
+    )
 );
 
-replaceContent(
+// Write app/plugins.js (used by the app itself)
+writeFormatted(
   'app/plugins.js',
-  plugins
-    .map(plugin => {
-      return `
-  '${plugin.name}': {
-    name: '${plugin.name}',
-    import: () =>
-      import(/* webpackChunkName: '${plugin.name}' */ '${plugin.pkgName}'),
-    pkgName: '${plugin.pkgName}',
-    pkgUrl: '${plugin.pkgUrl}',
-    config: ${plugin.config ? JSON.stringify(plugin.config) : null},
-    url: '${plugin.url}',
-    description: \`${plugin.description || ''}\`,
-    tags: ${JSON.stringify(plugin.tags)},
-    author: '${plugin.author || ''}',
-    stars: ${plugin.stars},
-  },`;
-    })
-    .join('\n')
+  `export default {
+  ${plugins
+    .map(
+      plugin => `'${plugin.name}': {
+        name: '${plugin.name}',
+        import: () =>
+          import(/* webpackChunkName: '${plugin.name}' */ '${plugin.pkgName}'),
+        config: ${plugin.config ? JSON.stringify(plugin.config) : null},
+        url: '${plugin.url}',
+      },`
+    )
+    .join('\n')}
+  }`
 );
 
-function replaceContent(file, list) {
-  const text = fs.readFileSync(file, 'utf8');
-  const newText = text.replace(
-    /(<!--|\/\*) AUTO-GENERATED; DO NOT EDIT (-->|\*\/)[\s\S]*(<!--|\/\*) END AUTO-GENERATED (-->|\*\/)/,
-    `$1 AUTO-GENERATED; DO NOT EDIT $2
-
-${list}
-
-$3 END AUTO-GENERATED $4`
-  );
-  fs.writeFileSync(file, format(newText, file));
-}
-
-function format(code, filepath) {
+function writeFormatted(filepath, code) {
   const options = Object.assign(
     {},
     prettier.resolveConfig.sync('package.json'),
     { filepath }
   );
-  return prettier.format(code, options);
+  fs.writeFileSync(filepath, prettier.format(code, options));
 }

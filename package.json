@@ -7,12 +7,12 @@
   "bugs": {
     "url": "https://github.com/RyanZim/postcss-repl/issues"
   },
-  "license": "ISC",
-  "author": "Ryan Zimmerman",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RyanZim/postcss-repl.git"
   },
+  "license": "ISC",
+  "author": "Ryan Zimmerman",
   "scripts": {
     "analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json dist",
     "prebuild": "rimraf dist && mkdirp dist && node build-plugins-list.js",

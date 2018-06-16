@@ -1,6 +1,7 @@
 # Built files
 /dist/
 /stats.json
+/app/plugins.js
 
 # Logs
 logs
