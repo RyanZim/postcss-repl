@@ -79,7 +79,7 @@
     "null-loader": "^0.1.1",
     "onchange": "^4.0.0",
     "postcss-import": "^11.1.0",
-    "postcss-normalize": "^5.0.0",
+    "postcss-normalize": "^6.0.0",
     "prettier": "1.13.5",
     "rimraf": "^2.6.2",
     "sort-package-json": "^1.11.0",
