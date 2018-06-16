@@ -27,10 +27,6 @@ module.exports = [
     name: 'lost',
   },
   {
-    name: 'postcss-cssnext',
-    config: { warnForDuplicates: false },
-  },
-  {
     name: 'postcss-preset-env',
     config: { stage: 0 },
   },
