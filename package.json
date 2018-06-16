@@ -50,7 +50,6 @@
     "postcss": "^6.0.19",
     "postcss-advanced-variables": "2.3.3",
     "postcss-calc": "6.0.1",
-    "postcss-cssnext": "3.1.0",
     "postcss-filter-plugins": "3.0.1",
     "postcss-flexbugs-fixes": "3.3.1",
     "postcss-mixins": "6.2.0",
