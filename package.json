@@ -57,7 +57,7 @@
     "postcss-nesting": "6.0.0",
     "postcss-ordered-values": "4.0.0",
     "postcss-plugins": "^1.11.1",
-    "postcss-preset-env": "5.2.2",
+    "postcss-preset-env": "5.2.3",
     "postcss-short": "4.1.0",
     "postcss-simple-vars": "4.1.0",
     "rucksack-css": "1.0.2"
