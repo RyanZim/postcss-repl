@@ -1,5 +1,11 @@
-$dark: #ccc;
-$gray: #eee;
+$light1: #CACFD7;
+$light2: #E1E5E8;
+$light3: #F3FAFF;
+$dark1: #21252b;
+$dark2: #2B3B50;
+$dark3: #4D5258;
+
 
 $drawer-width: 20vw;
 $drawer-hint-width: 5px;
+$header-height: 40px;

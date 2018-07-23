@@ -1,4 +1,4 @@
-<div id="editor-{id}" ref:editor></div>
+<div id="editor-{id}" class="editor" data-legend="{id}" ref:editor></div>
 
 <script>
 import CodeMirror from 'codemirror';
@@ -48,21 +48,41 @@ export default {
 
 <style>
 /* codemirror css is imported in app/index.css to avoid unneeded scoping */
+
 @import '../variables.css';
 
 /* codemirror hacks; have to use :global since they're not in the template */
+
 :global(.CodeMirror) {
   height: 100%;
+  font-size: 16px;
+
   &.cm-s-default {
-    background: $gray;
+    background: $light2;
 
     & .CodeMirror-gutters {
-      background: #ddd;
+      background: $light1;
     }
 
     & .CodeMirror-linenumber {
       color: #666;
     }
   }
+}
+
+.editor {
+  position: relative;
+}
+
+.editor::before {
+  content: attr(data-legend);
+  display: block;
+  color: rgba(128, 128, 128, 0.1);
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  z-index: 5;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px rgba(128, 128, 128, 0.25)
 }
 </style>
