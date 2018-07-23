@@ -1,10 +1,9 @@
-$light1: #CACFD7;
-$light2: #E1E5E8;
-$light3: #F3FAFF;
+$light1: #cacfd7;
+$light2: #e1e5e8;
+$light3: #f3faff;
 $dark1: #21252b;
-$dark2: #2B3B50;
-$dark3: #4D5258;
-
+$dark2: #2b3b50;
+$dark3: #4d5258;
 
 $drawer-width: 20vw;
 $drawer-hint-width: 5px;
