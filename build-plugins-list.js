@@ -41,10 +41,14 @@ writeFormatted(
     .map(
       plugin => `'${plugin.name}': {
         name: '${plugin.name}',
+        description: "${plugin.description}",
         import: () =>
           import(/* webpackChunkName: '${plugin.name}' */ '${plugin.pkgName}'),
         config: ${plugin.config ? JSON.stringify(plugin.config) : null},
         url: '${plugin.url}',
+        tags: ${JSON.stringify(plugin.tags)},
+        author: '${plugin.author}',
+        stars: ${plugin.stars}
       },`
     )
     .join('\n')}
