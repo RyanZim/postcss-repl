@@ -47,7 +47,7 @@
     "cssnano-browser": "4.0.0",
     "lodash.debounce": "^4.0.8",
     "lost": "8.3.0",
-    "postcss": "^6.0.19",
+    "postcss": "^7.0.1",
     "postcss-advanced-variables": "2.3.3",
     "postcss-calc": "6.0.1",
     "postcss-filter-plugins": "3.0.1",
