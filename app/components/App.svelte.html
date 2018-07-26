@@ -62,7 +62,7 @@ export default {
   display: flex;
   & > :global(div) {
     padding: 0;
-    flex: 0 1 50%;
+    width: 50%;
     height: calc(100vh - $header-height);
   }
 }
@@ -76,6 +76,7 @@ export default {
   padding: 1rem;
   background: $dark1;
   color: red;
+  max-width: calc(100% - 2rem - $drawer-width);
 
   &.visible {
     bottom: 0;
