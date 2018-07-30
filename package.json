@@ -51,7 +51,7 @@
     "postcss-advanced-variables": "2.3.3",
     "postcss-calc": "6.0.1",
     "postcss-filter-plugins": "3.0.1",
-    "postcss-flexbugs-fixes": "4.0.0",
+    "postcss-flexbugs-fixes": "4.1.0",
     "postcss-mixins": "6.2.0",
     "postcss-nested": "3.0.0",
     "postcss-nesting": "6.0.0",
