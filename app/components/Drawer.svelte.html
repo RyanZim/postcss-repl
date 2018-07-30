@@ -12,19 +12,20 @@
   </label>
 
   <div class="drawer-container">
-    <h2>Plugins:</h2>
+    <h2>Plugins</h2>
     {#each plugins as plugin}
     <label class="plugin">
       <input type="checkbox" value="{plugin.name}" bind:checked="checkedPlugins[plugin.name]" />
       <span class="name" title="{plugin.description}">{plugin.name}</span>
-      <a href="{plugin.url}" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
-          <path d="m 8.746788,5.4163099 0,4.1630977 -8.74250548,0 0,-7.9098857 4.99571738,0 0,0.8326195 -4.16309782,0 0,6.2446471 7.07726632,0 0,-3.3304786 0.8326196,0 z m 1.2489295,-4.99571746 -4.574412,0 1.67981,1.66523926 -2.9045934,2.94331 1.177324,1.1773241 L 8.2784396,3.2631557 9.9957175,5 l 0,-4.57940756 z"/>
+      <a href="{plugin.url}" target="_blank" class="external-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" style="fill: white">
+          <path d="m 8.746788,5.4163099 0,4.1630977 -8.74250548,0 0,-7.9098857 4.99571738,0 0,0.8326195 -4.16309782,0 0,6.2446471 7.07726632,0 0,-3.3304786 0.8326196,0 z m 1.2489295,-4.99571746 -4.574412,0 1.67981,1.66523926 -2.9045934,2.94331 1.177324,1.1773241 L 8.2784396,3.2631557 9.9957175,5 l 0,-4.57940756 z"
+          />
         </svg>
       </a>
     </label>
     {/each}
-    <h3>Browserslist:</h3>
+    <h2>Browserslist</h2>
     <input bind:value="browsers" type="text" placeholder="{browserslistDefaults}" />
   </div>
 </div>
@@ -60,11 +61,13 @@ export default {
 
 .drawer {
   position: absolute;
-  top: 0;
-  left: calc(-$drawer-width + $drawer-hint-width);
-  height: 100vh;
+  top: $header-height;
+  left: -$drawer-width;
+  height: calc(100vh - $header-height);
   width: $drawer-width;
-  background: $dark;
+  background: $dark1;
+  color: $light3;
+  border-right: $drawer-hint-width solid $dark3;
   transition: left 0.5s ease;
   z-index: 100;
 }
@@ -75,15 +78,7 @@ export default {
 
 .drawer-container {
   overflow-y: auto;
-  margin: 1rem;
-  & > .plugin {
-    display: block;
-    margin: 1rem 0;
-  }
-  & > input {
-    display: block;
-    width: calc(100% - 1rem);
-  }
+  margin: 0;
 }
 
 .drawer-toggle {
@@ -91,14 +86,14 @@ export default {
   top: 45%;
   left: $drawer-width;
   cursor: pointer;
-  padding: 8px;
-  padding-left: 0;
-  background: $dark;
+  padding: 16px 8px 16px 0;
+  background: $dark3;
+  color: white;
   white-space: nowrap;
   overflow: hidden;
-  border-radius: 0 16px 16px 0;
   width: 24px;
   transition: width 300ms ease-in-out;
+  border-radius: 0 16px 16px 0;
 
   & input {
     display: none;
@@ -107,6 +102,7 @@ export default {
   & svg {
     height: 24px;
     width: 24px;
+    fill: $light3;
     vertical-align: middle;
     margin-right: 0.5rem;
   }
@@ -118,5 +114,60 @@ export default {
   &:hover {
     width: 135px;
   }
+}
+
+.drawer h2 {
+  font-size: 1em;
+  text-transform: uppercase;
+  background: $dark2;
+  padding: 0.5em 1em;
+  margin: 0 0 0.5em 0;
+
+  &:not(:first-of-type) {
+    margin-top: 0.5em;
+  }
+}
+
+.external-link {
+  margin-left: 0.25em;
+  vertical-align: middle;
+}
+
+.plugin {
+  margin: 0;
+  padding: 0.25em 1em;
+  display: block;
+  background-color: transparent;
+  transition: background-color 150ms ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.plugin > * {
+  vertical-align: middle;
+}
+
+.plugin .name {
+  font-size: 0.9em;
+  color: $light2;
+}
+
+.plugin input:checked + .name {
+  color: $light3;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.drawer-container input[type='text'] {
+  display: block;
+  width: calc(100% - 1rem);
+  background: rgba(0, 0, 0, 0.5);
+  color: $light3;
+  border: none;
+  box-sizing: border-box;
+  margin: 0.5em;
+  padding: 0.5em 0.25em;
 }
 </style>
