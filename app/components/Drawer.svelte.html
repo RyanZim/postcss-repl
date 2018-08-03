@@ -14,7 +14,7 @@
   <div class="drawer-container">
     <h2>Plugins</h2>
     {#each plugins as plugin}
-    <label class="plugin">
+    <label class="plugin" on:mouseover="focusPlugin(plugin)" on:mouseout="focusOut()" data-plugin-name="{plugin.name}">
       <input type="checkbox" value="{plugin.name}" bind:checked="checkedPlugins[plugin.name]" />
       <span class="name" title="{plugin.description}">{plugin.name}</span>
       <a href="{plugin.url}" target="_blank" class="external-link">
@@ -30,14 +30,21 @@
   </div>
 </div>
 
+<PluginInfo bind:pluginFocused="pluginFocused"></PluginInfo>
+
 <script>
 import { browserslistDefaults } from '../util';
+
+import PluginInfo from './PluginInfo';
+
 export default {
-  components: {},
+  components: { PluginInfo },
   data() {
     return {
       plugins: [],
       checkedPlugins: {},
+      pluginFocused: null,
+      pluginFocusTimeout: null,
       browsers: '',
       open: true,
       browserslistDefaults,
@@ -52,6 +59,19 @@ export default {
       this.fire('selectedPluginsChanged', plugins);
     }
     if (changed.browsers) this.fire('browsersChanged', current.browsers);
+  },
+  methods: {
+    focusPlugin(pluginFocused) {
+      clearTimeout(this.pluginFocusTimeout);
+      this.set({ pluginFocused });
+    },
+    focusOut() {
+      if (this.get().pluginFocused !== null) {
+        this.pluginFocusTimeout = setTimeout(() => {
+          this.set({ pluginFocused: null });
+        }, 100);
+      }
+    },
   },
 };
 </script>
@@ -141,7 +161,11 @@ export default {
   transition: background-color 150ms ease-in-out;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: $dark3;
+
+    & .external-link {
+      opacity: 1;
+    }
   }
 }
 
@@ -152,6 +176,12 @@ export default {
 .plugin .name {
   font-size: 0.9em;
   color: $light2;
+}
+
+.plugin .external-link {
+  float: right;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
 
 .plugin input:checked + .name {
