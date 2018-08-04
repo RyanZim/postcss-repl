@@ -2,14 +2,18 @@
 const fs = require('fs');
 const prettier = require('prettier');
 const pluginsData = require('postcss-plugins');
+const pkg = require('./package.json');
 
 // Compile data
 const plugins = require('./plugins')
   .map(plugin =>
-    Object.assign(plugin, pluginsData.find(p => p.name === plugin.name) || {})
+    Object.assign(plugin, pluginsData.find(p => p.name === plugin.name) || {}, {
+      version: pkg.dependencies[plugin.pkgName || plugin.name],
+    })
   )
   .map(plugin => ({
     name: plugin.name,
+    version: plugin.version,
     pkgName: plugin.pkgName || plugin.name,
     pkgUrl: `https://www.npmjs.com/package/${plugin.pkgName || plugin.name}`,
     config: plugin.config,
@@ -41,6 +45,7 @@ writeFormatted(
     .map(
       plugin => `'${plugin.name}': {
         name: '${plugin.name}',
+        version: '${plugin.version}',
         description: "${plugin.description}",
         import: () =>
           import(/* webpackChunkName: '${plugin.name}' */ '${plugin.pkgName}'),
