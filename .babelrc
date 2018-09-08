@@ -1,16 +1,13 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/env",
       {
-        "targets": {
-          "browsers": ["> 0.5%"]
-        },
-        "useBuiltIns": true
+        "useBuiltIns": "usage"
       }
     ]
   ],
   "plugins": [
-    "syntax-dynamic-import"
+    "@babel/syntax-dynamic-import"
   ]
 }

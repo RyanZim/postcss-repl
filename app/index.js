@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 import _debounce from 'lodash.debounce';
 
 import postcss from 'postcss';
