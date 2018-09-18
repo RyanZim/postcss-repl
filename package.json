@@ -54,7 +54,7 @@
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-mixins": "6.2.0",
     "postcss-nested": "4.1.0",
-    "postcss-nesting": "6.0.0",
+    "postcss-nesting": "7.0.0",
     "postcss-ordered-values": "4.1.0",
     "postcss-plugins": "^1.12.1",
     "postcss-preset-env": "5.3.0",
