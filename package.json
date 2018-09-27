@@ -90,5 +90,14 @@
   },
   "browserslist": [
     "> 0.5%"
-  ]
+  ],
+  "renovate": {
+    "extends": [
+      "config:base",
+      ":preserveSemverRanges"
+    ],
+    "labels": [
+      "deps"
+    ]
+  }
 }
