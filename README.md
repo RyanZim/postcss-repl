@@ -1,6 +1,6 @@
 # postcss-repl
 
-[![Build Status](https://travis-ci.org/RyanZim/postcss-repl.svg?branch=master)](https://travis-ci.org/RyanZim/postcss-repl) [![Greenkeeper badge](https://badges.greenkeeper.io/RyanZim/postcss-repl.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/RyanZim/postcss-repl.svg?branch=master)](https://travis-ci.org/RyanZim/postcss-repl)
 
 An online REPL for [PostCSS](http://postcss.org/), including as many of the most popular PostCSS plugins. (Some, such as [`postcss-import`](https://github.com/postcss/postcss-import), won't work in the browser.)
 
