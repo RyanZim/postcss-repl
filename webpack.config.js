@@ -7,6 +7,7 @@ module.exports = {
   entry: './app/index.js',
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   resolve: {
+    mainFields: ['main'],
     extensions: ['.wasm', '.mjs', '.js', '.json', '.svelte.html'],
     alias: {
       // Force common version
