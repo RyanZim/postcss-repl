@@ -28,7 +28,7 @@ export default {
     if (id === 'output') {
       const editor = new CodeMirror(
         document.getElementById(`editor-${id}`),
-        Object.assign({ readOnly: 'nocursor' }, commonOpts)
+        Object.assign({ readOnly: true }, commonOpts)
       );
       this.on('state', ({ changed, current }) => {
         if (changed.value) editor.setValue(current.value);
