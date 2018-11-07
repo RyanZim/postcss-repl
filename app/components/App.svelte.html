@@ -1,9 +1,7 @@
 <div class="{drawerOpen ? 'drawer-open' : ''}">
   <div class="container">
     <GithubCorner />
-    <header>
-      <h1>PostCSS REPL</h1>
-    </header>
+    <header><h1>PostCSS REPL</h1></header>
     <main>
       <div class="input-output">
         <CodeMirror bind:value="input" id="input" />
@@ -12,11 +10,12 @@
       <pre class="error {error ? 'visible' : ''}">{error}</pre>
     </main>
   </div>
-  <Drawer plugins="{plugins}"
-          bind:open="drawerOpen"
-          on:selectedPluginsChanged="set({ selectedPlugins: event })"
-          on:browsersChanged="set({ browsers: event })"
-          on:toggle="set({ drawerOpen: event })"
+  <Drawer
+    plugins="{plugins}"
+    bind:open="drawerOpen"
+    on:selectedPluginsChanged="set({ selectedPlugins: event })"
+    on:browsersChanged="set({ browsers: event })"
+    on:toggle="set({ drawerOpen: event })"
   />
 </div>
 <script>

@@ -1,19 +1,19 @@
 {#if plugin}
 <div class="tooltip" ref:tooltip>
-    <p>
-        <span class="name">{plugin.name}</span>
-        <span class="version">v{plugin.version}</span>
-        <span class="stars">★ {plugin.stars}</span>
-    </p>
+  <p>
+    <span class="name">{plugin.name}</span>
+    <span class="version">v{plugin.version}</span>
+    <span class="stars">★ {plugin.stars}</span>
+  </p>
 
-    <p class="author">by {plugin.author}</p>
+  <p class="author">by {plugin.author}</p>
 
-    <ul class="tags">
-        {#each plugin.tags as tag}
-        <li class="tag">{tag}</li>
-        {/each}
-    </ul>
-    <p class="description">{plugin.description}</p>
+  <ul class="tags">
+    {#each plugin.tags as tag}
+    <li class="tag">{tag}</li>
+    {/each}
+  </ul>
+  <p class="description">{plugin.description}</p>
 </div>
 {/if}
 
