@@ -13,6 +13,7 @@
   <Drawer
     plugins="{plugins}"
     bind:open="drawerOpen"
+    bind:options
     on:selectedPluginsChanged="set({ selectedPlugins: event })"
     on:browsersChanged="set({ browsers: event })"
     on:toggle="set({ drawerOpen: event })"
@@ -37,6 +38,11 @@ export default {
       error: '',
       plugins: [],
       selectedPlugins: [],
+      options: {
+        autoprefixer: {
+          grid: false,
+        },
+      },
       browsers: '',
       drawerOpen: true,
     };
