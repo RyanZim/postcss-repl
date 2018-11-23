@@ -48,7 +48,7 @@
     "lodash.debounce": "^4.0.8",
     "lost": "8.3.0",
     "postcss": "^7.0.2",
-    "postcss-advanced-variables": "2.3.3",
+    "postcss-advanced-variables": "3.0.0",
     "postcss-calc": "7.0.1",
     "postcss-filter-plugins": "3.0.1",
     "postcss-flexbugs-fixes": "4.1.0",
