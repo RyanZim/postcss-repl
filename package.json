@@ -94,10 +94,9 @@
   "renovate": {
     "extends": [
       "config:base",
-      ":preserveSemverRanges"
-    ],
-    "labels": [
-      "deps"
+      ":preserveSemverRanges",
+      ":maintainLockFilesWeekly",
+      ":label(deps)"
     ]
   }
 }
