@@ -22,7 +22,7 @@
     "build:js": "webpack --progress",
     "eslint": "eslint . --ignore-path .prettierignore",
     "format": "npm run eslint -- --fix && npm run prettier -- --write && sort-package-json",
-    "test": "npm run eslint && npm run prettier -- --list-different && npm run build-production",
+    "test": "npm run eslint && npm run prettier -- --check && npm run build-production",
     "prettier": "run-s \"prettier:* -- {@}\" --",
     "prettier:normal": "prettier \"**/*.{js,md,css}\"",
     "prettier:svelte": "prettier --parser vue \"**/*.svelte.html\"",
