@@ -55,7 +55,7 @@
     "postcss-mixins": "6.2.0",
     "postcss-nested": "4.1.1",
     "postcss-nesting": "7.0.0",
-    "postcss-ordered-values": "4.1.1",
+    "postcss-ordered-values": "4.1.2",
     "postcss-plugins": "^1.12.1",
     "postcss-preset-env": "6.5.0",
     "postcss-short": "5.0.0",
