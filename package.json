@@ -59,7 +59,7 @@
     "postcss-plugins": "^1.12.1",
     "postcss-preset-env": "6.5.0",
     "postcss-short": "5.0.0",
-    "postcss-simple-vars": "5.0.1",
+    "postcss-simple-vars": "5.0.2",
     "rucksack-css": "1.0.2"
   },
   "devDependencies": {
