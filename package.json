@@ -82,7 +82,7 @@
     "prettier": "1.17.0",
     "rimraf": "^2.6.2",
     "sort-package-json": "^1.11.0",
-    "svelte": "^2.9.9",
+    "svelte": "^3.0.0",
     "svelte-loader": "^2.10.1",
     "webpack": "^4.16.4",
     "webpack-bundle-analyzer": "^3.0.0",
