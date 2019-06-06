@@ -79,7 +79,7 @@
     "onchange": "^6.0.0",
     "postcss-import": "^12.0.0",
     "postcss-normalize": "^7.0.0",
-    "prettier": "1.17.1",
+    "prettier": "1.18.0",
     "rimraf": "^2.6.2",
     "sort-package-json": "^1.11.0",
     "svelte": "^2.9.9",
