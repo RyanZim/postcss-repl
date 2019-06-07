@@ -36,9 +36,7 @@ const compile = _debounce(
           plugins = plugins.concat([
             filterDupes({
               template: plugin =>
-                `${
-                  plugin.postcssPlugin
-                } is included more than once in the plugin chain`,
+                `${plugin.postcssPlugin} is included more than once in the plugin chain`,
             }),
           ]);
 
