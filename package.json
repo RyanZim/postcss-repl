@@ -73,7 +73,7 @@
     "babel-loader": "^8.0.2",
     "cross-env": "^5.1.4",
     "cssnano": "^4.0.5",
-    "eslint": "^5.2.0",
+    "eslint": "^6.0.0",
     "eslint-config-problems": "^3.0.0",
     "live-server": "^1.2.0",
     "mkdirp": "^0.5.1",
