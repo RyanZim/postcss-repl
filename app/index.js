@@ -17,7 +17,7 @@ const app = new App({
 const compile = _debounce(
   () => {
     try {
-      const { input, browsers, selectedPlugins: plugins } = app.get();
+      const { input, browsers, selectedPlugins: plugins, options } = app.get();
 
       Promise.all(
         plugins.map(name => {
@@ -25,7 +25,8 @@ const compile = _debounce(
             {
               browsers: browsers || browserslistDefaults,
             },
-            pluginsObj[name].config
+            pluginsObj[name].config,
+            options[name] || {}
           );
           return pluginsObj[name]
             .import()
@@ -70,7 +71,13 @@ const compile = _debounce(
 );
 
 app.on('state', ({ changed }) => {
-  if (changed.input || changed.selectedPlugins || changed.browsers) compile();
+  if (
+    changed.input ||
+    changed.selectedPlugins ||
+    changed.browsers ||
+    changed.options
+  )
+    compile();
 });
 compile();
 
