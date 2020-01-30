@@ -21,12 +21,10 @@ const compile = _debounce(
 
       Promise.all(
         plugins.map(name => {
-          const config = Object.assign(
-            {
-              browsers: browsers || browserslistDefaults,
-            },
-            pluginsObj[name].config
-          );
+          const config = {
+            browsers: browsers || browserslistDefaults,
+            ...pluginsObj[name].config,
+          };
           return pluginsObj[name]
             .import()
             .then(plugin => plugin.default(config));
