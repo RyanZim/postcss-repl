@@ -61,10 +61,6 @@ writeFormatted(
 );
 
 function writeFormatted(filepath, code) {
-  const options = Object.assign(
-    {},
-    prettier.resolveConfig.sync('package.json'),
-    { filepath }
-  );
+  const options = { ...prettier.resolveConfig.sync('package.json'), filepath };
   fs.writeFileSync(filepath, prettier.format(code, options));
 }
