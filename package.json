@@ -52,7 +52,7 @@
     "lost": "8.3.1",
     "postcss": "^7.0.2",
     "postcss-advanced-variables": "3.0.0",
-    "postcss-calc": "7.0.1",
+    "postcss-calc": "7.0.2",
     "postcss-filter-plugins": "3.0.1",
     "postcss-flexbugs-fixes": "4.2.0",
     "postcss-mixins": "6.2.0",
