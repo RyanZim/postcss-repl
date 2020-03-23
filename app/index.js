@@ -20,32 +20,32 @@ const compile = _debounce(
       const { input, browsers, selectedPlugins: plugins } = app.get();
 
       Promise.all(
-        plugins.map(name => {
+        plugins.map((name) => {
           const config = {
             browsers: browsers || browserslistDefaults,
             ...pluginsObj[name].config,
           };
           return pluginsObj[name]
             .import()
-            .then(plugin => plugin.default(config));
+            .then((plugin) => plugin.default(config));
         })
       )
-        .then(plugins => {
+        .then((plugins) => {
           plugins = plugins.concat([
             filterDupes({
-              template: plugin =>
+              template: (plugin) =>
                 `${plugin.postcssPlugin} is included more than once in the plugin chain`,
             }),
           ]);
 
           return postcss(plugins).process(input, { from: undefined });
         })
-        .then(result => {
+        .then((result) => {
           app.set({
             output: result.css,
             error: result
               .warnings()
-              .map(warn => {
+              .map((warn) => {
                 return `Warning: ${
                   warn.plugin === 'postcss-filter-plugins'
                     ? warn.text
@@ -55,7 +55,7 @@ const compile = _debounce(
               .join('\n'),
           });
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
           app.set({ error: error.toString() });
         });

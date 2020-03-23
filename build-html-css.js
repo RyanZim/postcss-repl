@@ -11,7 +11,7 @@ const css = fs.readFileSync('app/index.css', 'utf8');
 
 postcss(plugins)
   .process(css, { from: 'app/index.css' })
-  .then(result => {
+  .then((result) => {
     const output = html.replace(
       '<!-- CSS auto-inlined here -->',
       `<style>
@@ -20,7 +20,7 @@ postcss(plugins)
     );
     fs.writeFileSync('dist/index.html', output);
   })
-  .catch(e => {
+  .catch((e) => {
     console.error(e);
     process.exit(1);
   });

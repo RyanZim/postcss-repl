@@ -34,8 +34,8 @@ module.exports = {
               style: ({ content, filename }) => {
                 return postcss(plugins)
                   .process(content, { from: filename })
-                  .then(result => ({ code: result.css }))
-                  .catch(err => {
+                  .then((result) => ({ code: result.css }))
+                  .catch((err) => {
                     console.error('failed to preprocess style', err);
                   });
               },

@@ -6,12 +6,14 @@ const pkg = require('./package.json');
 
 // Compile data
 const plugins = require('./plugins')
-  .map(plugin =>
-    Object.assign(plugin, pluginsData.find(p => p.name === plugin.name) || {}, {
-      version: pkg.dependencies[plugin.pkgName || plugin.name],
-    })
+  .map((plugin) =>
+    Object.assign(
+      plugin,
+      pluginsData.find((p) => p.name === plugin.name) || {},
+      { version: pkg.dependencies[plugin.pkgName || plugin.name] }
+    )
   )
-  .map(plugin => ({
+  .map((plugin) => ({
     name: plugin.name,
     version: plugin.version,
     pkgName: plugin.pkgName || plugin.name,
@@ -32,7 +34,7 @@ writeFormatted(
     .replace(
       /<!-- AUTO-GENERATED; DO NOT EDIT -->[\s\S]*<!-- END AUTO-GENERATED -->/,
       `<!-- AUTO-GENERATED; DO NOT EDIT -->\n${plugins
-        .map(plugin => `- [\`${plugin.name}\`](${plugin.url})`)
+        .map((plugin) => `- [\`${plugin.name}\`](${plugin.url})`)
         .join('\n')}\n\n<!-- END AUTO-GENERATED -->`
     )
 );
@@ -43,7 +45,7 @@ writeFormatted(
   `export default {
   ${plugins
     .map(
-      plugin => `'${plugin.name}': {
+      (plugin) => `'${plugin.name}': {
         name: '${plugin.name}',
         version: '${plugin.version}',
         description: "${plugin.description}",
