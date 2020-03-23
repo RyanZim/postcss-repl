@@ -37,8 +37,7 @@
   ],
   "prettier": {
     "proseWrap": "never",
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "singleQuote": true
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
