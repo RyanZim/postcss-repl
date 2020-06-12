@@ -54,7 +54,7 @@
     "postcss-calc": "7.0.2",
     "postcss-filter-plugins": "3.0.1",
     "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-mixins": "6.2.0",
+    "postcss-mixins": "6.2.3",
     "postcss-nested": "4.2.1",
     "postcss-nesting": "7.0.1",
     "postcss-ordered-values": "4.1.2",

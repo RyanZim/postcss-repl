@@ -15,6 +15,8 @@ module.exports = {
       'caniuse-lite': path.resolve(__dirname, 'node_modules/caniuse-lite'),
       autoprefixer: path.resolve(__dirname, 'node_modules/autoprefixer'),
       browserslist: path.resolve(__dirname, 'node_modules/browserslist'),
+      // don't need actual globby; just mock it
+      globby: path.resolve(__dirname, 'mocks/globby.js'),
       // HACK: postcss-cssnext requires this, and doesn't use .default to access it
       'postcss-font-family-system-ui': path.resolve(
         __dirname,
