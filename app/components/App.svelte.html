@@ -19,71 +19,71 @@
   />
 </div>
 <script>
-import CodeMirror from './CodeMirror';
-import GithubCorner from './GithubCorner';
-import Drawer from './Drawer';
+  import CodeMirror from './CodeMirror';
+  import GithubCorner from './GithubCorner';
+  import Drawer from './Drawer';
 
-const css = `p {
+  const css = `p {
   color: red;
 }
 `;
 
-export default {
-  components: { CodeMirror, GithubCorner, Drawer },
-  data() {
-    return {
-      input: css,
-      output: '',
-      error: '',
-      plugins: [],
-      selectedPlugins: [],
-      browsers: '',
-      drawerOpen: true,
-    };
-  },
-};
+  export default {
+    components: { CodeMirror, GithubCorner, Drawer },
+    data() {
+      return {
+        input: css,
+        output: '',
+        error: '',
+        plugins: [],
+        selectedPlugins: [],
+        browsers: '',
+        drawerOpen: true,
+      };
+    },
+  };
 </script>
 
 <style>
-@import '../variables.css';
+  @import '../variables.css';
 
-.container > main {
-  transition: width 300ms ease-in-out;
-}
-
-.drawer-open {
-  & .container > main {
-    padding-left: $drawer-width;
+  .container > main {
+    transition: width 300ms ease-in-out;
   }
-}
 
-.input-output {
-  display: flex;
-  & > :global(div) {
-    padding: 0;
-    width: 50%;
-    height: calc(100vh - $header-height);
+  .drawer-open {
+    & .container > main {
+      padding-left: $drawer-width;
+    }
   }
-}
 
-.error {
-  position: fixed;
-  bottom: -25vh;
-  right: 0;
-  z-index: 10;
-  margin: 1rem;
-  padding: 1rem;
-  background: $dark1;
-  color: red;
-  max-width: calc(100% - 2rem - $drawer-width);
-
-  &.visible {
-    bottom: 0;
-    transition: bottom 0.5s ease-in;
+  .input-output {
+    display: flex;
+    & > :global(div) {
+      padding: 0;
+      width: 50%;
+      height: calc(100vh - $header-height);
+    }
   }
-}
 
-.editor {
-  border-right: 1px solid #ccc;
-}
+  .error {
+    position: fixed;
+    bottom: -25vh;
+    right: 0;
+    z-index: 10;
+    margin: 1rem;
+    padding: 1rem;
+    background: $dark1;
+    color: red;
+    max-width: calc(100% - 2rem - $drawer-width);
+
+    &.visible {
+      bottom: 0;
+      transition: bottom 0.5s ease-in;
+    }
+  }
+
+  .editor {
+    border-right: 1px solid #ccc;
+  }
 </style>

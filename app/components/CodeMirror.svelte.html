@@ -1,88 +1,88 @@
 <div id="editor-{id}" class="editor" data-legend="{id}" ref:editor></div>
 
 <script>
-import CodeMirror from 'codemirror';
-import 'codemirror/mode/css/css.js';
+  import CodeMirror from 'codemirror';
+  import 'codemirror/mode/css/css.js';
 
-export default {
-  data() {
-    return {
-      value: '',
-    };
-  },
-  oncreate() {
-    const commonOpts = {
-      mode: 'css',
-      lineNumbers: true,
-      extraKeys: {
-        // Soft tab support
-        Tab(cm) {
-          const spaces = Array(cm.getOption('indentUnit') + 1).join(' ');
-          cm.replaceSelection(spaces);
+  export default {
+    data() {
+      return {
+        value: '',
+      };
+    },
+    oncreate() {
+      const commonOpts = {
+        mode: 'css',
+        lineNumbers: true,
+        extraKeys: {
+          // Soft tab support
+          Tab(cm) {
+            const spaces = Array(cm.getOption('indentUnit') + 1).join(' ');
+            cm.replaceSelection(spaces);
+          },
         },
-      },
-    };
+      };
 
-    const { id, value } = this.get();
+      const { id, value } = this.get();
 
-    if (id === 'output') {
-      const editor = new CodeMirror(
-        document.getElementById(`editor-${id}`),
-        Object.assign({ readOnly: true }, commonOpts)
-      );
-      this.on('state', ({ changed, current }) => {
-        if (changed.value) editor.setValue(current.value);
-      });
-    } else {
-      const editor = new CodeMirror(
-        document.getElementById(`editor-${id}`),
-        Object.assign({ value }, commonOpts)
-      );
-      editor.on('change', () => {
-        this.set({ value: editor.getValue() });
-      });
-    }
-  },
-};
+      if (id === 'output') {
+        const editor = new CodeMirror(
+          document.getElementById(`editor-${id}`),
+          Object.assign({ readOnly: true }, commonOpts)
+        );
+        this.on('state', ({ changed, current }) => {
+          if (changed.value) editor.setValue(current.value);
+        });
+      } else {
+        const editor = new CodeMirror(
+          document.getElementById(`editor-${id}`),
+          Object.assign({ value }, commonOpts)
+        );
+        editor.on('change', () => {
+          this.set({ value: editor.getValue() });
+        });
+      }
+    },
+  };
 </script>
 
 <style>
-/* codemirror css is imported in app/index.css to avoid unneeded scoping */
+  /* codemirror css is imported in app/index.css to avoid unneeded scoping */
 
-@import '../variables.css';
+  @import '../variables.css';
 
-/* codemirror hacks; have to use :global since they're not in the template */
+  /* codemirror hacks; have to use :global since they're not in the template */
 
-:global(.CodeMirror) {
-  height: 100%;
-  font-size: 16px;
+  :global(.CodeMirror) {
+    height: 100%;
+    font-size: 16px;
 
-  &.cm-s-default {
-    background: $light2;
+    &.cm-s-default {
+      background: $light2;
 
-    & .CodeMirror-gutters {
-      background: $light1;
-    }
+      & .CodeMirror-gutters {
+        background: $light1;
+      }
 
-    & .CodeMirror-linenumber {
-      color: #666;
+      & .CodeMirror-linenumber {
+        color: #666;
+      }
     }
   }
-}
 
-.editor {
-  position: relative;
-}
+  .editor {
+    position: relative;
+  }
 
-.editor::before {
-  content: attr(data-legend);
-  display: block;
-  color: rgba(128, 128, 128, 0.1);
-  position: absolute;
-  top: 0.5em;
-  right: 1em;
-  z-index: 5;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 0px rgba(128, 128, 128, 0.25);
-}
+  .editor::before {
+    content: attr(data-legend);
+    display: block;
+    color: rgba(128, 128, 128, 0.1);
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    z-index: 5;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px rgba(128, 128, 128, 0.25);
+  }
 </style>
