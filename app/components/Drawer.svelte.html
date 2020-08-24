@@ -58,171 +58,171 @@
 <PluginInfo bind:pluginFocused="pluginFocused"></PluginInfo>
 
 <script>
-import { browserslistDefaults } from '../util';
+  import { browserslistDefaults } from '../util';
 
-import PluginInfo from './PluginInfo';
+  import PluginInfo from './PluginInfo';
 
-export default {
-  components: { PluginInfo },
-  data() {
-    return {
-      plugins: [],
-      checkedPlugins: {},
-      pluginFocused: null,
-      pluginFocusTimeout: null,
-      browsers: '',
-      open: true,
-      browserslistDefaults,
-    };
-  },
-  onstate({ changed, current }) {
-    if (changed.checkedPlugins) {
-      const plugins = [];
-      for (const plugin in current.checkedPlugins) {
-        if (current.checkedPlugins[plugin]) plugins.push(plugin);
-      }
-      this.fire('selectedPluginsChanged', plugins);
-    }
-    if (changed.browsers) this.fire('browsersChanged', current.browsers);
-  },
-  methods: {
-    focusPlugin(pluginFocused) {
-      clearTimeout(this.pluginFocusTimeout);
-      this.set({ pluginFocused });
+  export default {
+    components: { PluginInfo },
+    data() {
+      return {
+        plugins: [],
+        checkedPlugins: {},
+        pluginFocused: null,
+        pluginFocusTimeout: null,
+        browsers: '',
+        open: true,
+        browserslistDefaults,
+      };
     },
-    focusOut() {
-      if (this.get().pluginFocused !== null) {
-        this.pluginFocusTimeout = setTimeout(() => {
-          this.set({ pluginFocused: null });
-        }, 100);
+    onstate({ changed, current }) {
+      if (changed.checkedPlugins) {
+        const plugins = [];
+        for (const plugin in current.checkedPlugins) {
+          if (current.checkedPlugins[plugin]) plugins.push(plugin);
+        }
+        this.fire('selectedPluginsChanged', plugins);
       }
+      if (changed.browsers) this.fire('browsersChanged', current.browsers);
     },
-  },
-};
+    methods: {
+      focusPlugin(pluginFocused) {
+        clearTimeout(this.pluginFocusTimeout);
+        this.set({ pluginFocused });
+      },
+      focusOut() {
+        if (this.get().pluginFocused !== null) {
+          this.pluginFocusTimeout = setTimeout(() => {
+            this.set({ pluginFocused: null });
+          }, 100);
+        }
+      },
+    },
+  };
 </script>
 
 <style>
-@import '../variables.css';
+  @import '../variables.css';
 
-.drawer {
-  position: absolute;
-  top: $header-height;
-  left: -$drawer-width;
-  height: calc(100vh - $header-height);
-  width: $drawer-width;
-  background: $dark1;
-  color: $light3;
-  border-right: $drawer-hint-width solid $dark3;
-  transition: left 0.5s ease;
-  z-index: 100;
-}
-
-.drawer.open {
-  left: 0;
-}
-
-.drawer-container {
-  overflow-y: auto;
-  margin: 0;
-}
-
-.drawer-toggle {
-  position: absolute;
-  top: 45%;
-  left: $drawer-width;
-  cursor: pointer;
-  padding: 16px 8px 16px 0;
-  background: $dark3;
-  color: white;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 24px;
-  transition: width 300ms ease-in-out;
-  border-radius: 0 16px 16px 0;
-
-  & input {
-    display: none;
+  .drawer {
+    position: absolute;
+    top: $header-height;
+    left: -$drawer-width;
+    height: calc(100vh - $header-height);
+    width: $drawer-width;
+    background: $dark1;
+    color: $light3;
+    border-right: $drawer-hint-width solid $dark3;
+    transition: left 0.5s ease;
+    z-index: 100;
   }
 
-  & svg {
-    height: 24px;
+  .drawer.open {
+    left: 0;
+  }
+
+  .drawer-container {
+    overflow-y: auto;
+    margin: 0;
+  }
+
+  .drawer-toggle {
+    position: absolute;
+    top: 45%;
+    left: $drawer-width;
+    cursor: pointer;
+    padding: 16px 8px 16px 0;
+    background: $dark3;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
     width: 24px;
-    fill: $light3;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-  }
+    transition: width 300ms ease-in-out;
+    border-radius: 0 16px 16px 0;
 
-  & span {
-    vertical-align: middle;
-  }
+    & input {
+      display: none;
+    }
 
-  &:hover {
-    width: 135px;
-  }
-}
+    & svg {
+      height: 24px;
+      width: 24px;
+      fill: $light3;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
 
-.drawer h2 {
-  font-size: 1em;
-  text-transform: uppercase;
-  background: $dark2;
-  padding: 0.5em 1em;
-  margin: 0 0 0.5em 0;
+    & span {
+      vertical-align: middle;
+    }
 
-  &:not(:first-of-type) {
-    margin-top: 0.5em;
-  }
-}
-
-.external-link {
-  margin-left: 0.25em;
-  vertical-align: middle;
-}
-
-.plugin {
-  margin: 0;
-  padding: 0.25em 1em;
-  display: block;
-  background-color: transparent;
-  transition: background-color 150ms ease-in-out;
-
-  &:hover {
-    background-color: $dark3;
-
-    & .external-link {
-      opacity: 1;
+    &:hover {
+      width: 135px;
     }
   }
-}
 
-.plugin > * {
-  vertical-align: middle;
-}
+  .drawer h2 {
+    font-size: 1em;
+    text-transform: uppercase;
+    background: $dark2;
+    padding: 0.5em 1em;
+    margin: 0 0 0.5em 0;
 
-.plugin .name {
-  font-size: 0.9em;
-  color: $light2;
-}
+    &:not(:first-of-type) {
+      margin-top: 0.5em;
+    }
+  }
 
-.plugin .external-link {
-  float: right;
-  opacity: 0;
-  transition: opacity 150ms ease-in-out;
-}
+  .external-link {
+    margin-left: 0.25em;
+    vertical-align: middle;
+  }
 
-.plugin input:checked + .name {
-  color: $light3;
-  font-weight: bold;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-}
+  .plugin {
+    margin: 0;
+    padding: 0.25em 1em;
+    display: block;
+    background-color: transparent;
+    transition: background-color 150ms ease-in-out;
 
-.drawer-container input[type='text'] {
-  display: block;
-  width: calc(100% - 1rem);
-  background: rgba(0, 0, 0, 0.5);
-  color: $light3;
-  border: none;
-  box-sizing: border-box;
-  margin: 0.5em;
-  padding: 0.5em 0.25em;
-}
+    &:hover {
+      background-color: $dark3;
+
+      & .external-link {
+        opacity: 1;
+      }
+    }
+  }
+
+  .plugin > * {
+    vertical-align: middle;
+  }
+
+  .plugin .name {
+    font-size: 0.9em;
+    color: $light2;
+  }
+
+  .plugin .external-link {
+    float: right;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  .plugin input:checked + .name {
+    color: $light3;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .drawer-container input[type='text'] {
+    display: block;
+    width: calc(100% - 1rem);
+    background: rgba(0, 0, 0, 0.5);
+    color: $light3;
+    border: none;
+    box-sizing: border-box;
+    margin: 0.5em;
+    padding: 0.5em 0.25em;
+  }
 </style>

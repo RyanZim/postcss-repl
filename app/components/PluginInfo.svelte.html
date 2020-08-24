@@ -18,86 +18,86 @@
 {/if}
 
 <script>
-export default {
-  onstate({ changed, current }) {
-    if (changed.pluginFocused) {
-      if (current.pluginFocused != null) {
-        let plugin = current.pluginFocused;
-        this.set({ plugin });
+  export default {
+    onstate({ changed, current }) {
+      if (changed.pluginFocused) {
+        if (current.pluginFocused != null) {
+          let plugin = current.pluginFocused;
+          this.set({ plugin });
 
-        let label = document.querySelector(
-          `.plugin[data-plugin-name="${plugin.name}"]`
-        );
-        let { top, left, width } = label.getBoundingClientRect();
+          let label = document.querySelector(
+            `.plugin[data-plugin-name="${plugin.name}"]`
+          );
+          let { top, left, width } = label.getBoundingClientRect();
 
-        Object.assign(this.refs.tooltip.style, {
-          left: left + width + 'px',
-          top: top + 'px',
-          opacity: 1,
-        });
-      } else if (current.plugin != null) {
-        this.refs.tooltip.style.opacity = 0;
-        setTimeout(() => {
-          this.set({ plugin: null });
-        }, 150);
+          Object.assign(this.refs.tooltip.style, {
+            left: left + width + 'px',
+            top: top + 'px',
+            opacity: 1,
+          });
+        } else if (current.plugin != null) {
+          this.refs.tooltip.style.opacity = 0;
+          setTimeout(() => {
+            this.set({ plugin: null });
+          }, 150);
+        }
       }
-    }
-  },
-};
+    },
+  };
 </script>
 
 <style>
-@import '../variables.css';
+  @import '../variables.css';
 
-.tooltip {
-  position: absolute;
-  z-index: 105;
-  padding: 1em;
-  max-width: 400px;
-  background-color: $dark3;
-  color: $light3;
-  opacity: 0;
-  transition: all 150ms ease-in-out;
-}
+  .tooltip {
+    position: absolute;
+    z-index: 105;
+    padding: 1em;
+    max-width: 400px;
+    background-color: $dark3;
+    color: $light3;
+    opacity: 0;
+    transition: all 150ms ease-in-out;
+  }
 
-.tooltip p {
-  margin: 0;
-}
+  .tooltip p {
+    margin: 0;
+  }
 
-.tooltip .name {
-  font-weight: bold;
-}
+  .tooltip .name {
+    font-weight: bold;
+  }
 
-.tooltip .version {
-  color: $light1;
-  font-size: 0.85em;
-  vertical-align: text-bottom;
-  margin: 0 0.5em;
-}
+  .tooltip .version {
+    color: $light1;
+    font-size: 0.85em;
+    vertical-align: text-bottom;
+    margin: 0 0.5em;
+  }
 
-.tooltip .author {
-  font-style: italic;
-  font-size: 0.85em;
-  margin-top: 0.5em;
-}
+  .tooltip .author {
+    font-style: italic;
+    font-size: 0.85em;
+    margin-top: 0.5em;
+  }
 
-.tooltip .stars {
-  float: right;
-}
+  .tooltip .stars {
+    float: right;
+  }
 
-.tags {
-  list-style: none;
-  margin: 0.5em;
-  padding: 0;
-}
+  .tags {
+    list-style: none;
+    margin: 0.5em;
+    padding: 0;
+  }
 
-.tag {
-  display: inline-block;
-  margin: 0.25em;
-  padding: 0.25em 0.5em;
-  border-radius: 3px;
-  background: $dark1;
-  color: $light1;
-  font-size: 0.8em;
-}
+  .tag {
+    display: inline-block;
+    margin: 0.25em;
+    padding: 0.25em 0.5em;
+    border-radius: 3px;
+    background: $dark1;
+    color: $light1;
+    font-size: 0.8em;
+  }
 </style>
